@@ -48,7 +48,7 @@
  },
  "dependencies": {
   "@cogneco/mend": "^1.7.3",
-  "@typeup/dom": "^0.1.12"
+  "@typeup/dom": "^0.1.14"
  },
  "devDependencies": {
   "@types/jest": "^23.1.3",

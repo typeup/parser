@@ -6,7 +6,7 @@ import * as block from "./block"
 function parse(source: Source): dom.block.Block[] | undefined {
 	let result: dom.block.Block[] | undefined
 	if (source.readIf("!figure ")) {
-		const image = Uri.Locator.parse(source.till([" ", "\n"]).readAll())
+		const image = Uri.Locator.parse(source.till([" ", "\n"]).readAll()) || Uri.Locator.empty
 		const classes = source.readIf(" ") ? (source.till("\n").readAll() || "").split(" ") : []
 		if (!source.readIf("\n"))
 			source.raise("Expected newline as end of figure.")

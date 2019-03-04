@@ -24,7 +24,7 @@ function parse(source: Source): dom.block.Block[] | undefined {
 				if (!content)
 					source.raise("Unable to open imported file.", Error.Level.Recoverable)
 				else
-					result = [ new dom.block.Import(Uri.Locator.parse(path), content, region) ]
+					result = [ new dom.block.Import(Uri.Locator.parse(path) || Uri.Locator.empty, content, region) ]
 			}
 		}
 	}
