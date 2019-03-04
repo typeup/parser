@@ -15,9 +15,9 @@ function parse(source: Source): dom.block.Block[] | undefined {
 		const region = source.mark()
 		result = block.parse(source) || []
 		if (result.length > 0 && result[0] instanceof dom.block.Paragraph)
-			result[0] = new dom.block.CodeBlock(language, code, (result[0] as dom.block.Paragraph).content, region)
+			result[0] = new dom.block.Code(language, code, (result[0] as dom.block.Paragraph).content, region)
 		else
-			result.unshift(new dom.block.CodeBlock(language, code, [], region))
+			result.unshift(new dom.block.Code(language, code, [], region))
 	}
 	return result
 }
