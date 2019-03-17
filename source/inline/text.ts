@@ -12,7 +12,7 @@ function parse(source: Source): dom.inline.Inline[] | undefined {
 		result = inline.parse(source)
 		if (!result)
 			result = [new dom.inline.Text(value, region) as dom.inline.Inline]
-		else if (result.length > 0 && result[0] instanceof Text) {
+		else if (result.length > 0 && result[0] instanceof dom.inline.Text) {
 			value += (result[0] as dom.inline.Text).value
 			region = region.merge(result[0].region)
 			result[0] = new dom.inline.Text(value, region)

@@ -47,7 +47,7 @@
   "clean": "rm -rf build node_modules coverage"
  },
  "dependencies": {
-  "@cogneco/mend": "^1.7.3",
+  "@cogneco/mend": "^1.7.6",
   "@typeup/dom": "^0.1.15"
  },
  "devDependencies": {

@@ -1,7 +1,7 @@
-import "./Text"
-import "./Emphasize"
-import "./Link"
-import "./Code"
-import "./Math"
+import "./code"
+import "./emphasize"
+import "./link"
+import "./math"
+import "./text"
 
 export { parse } from "./inline"
