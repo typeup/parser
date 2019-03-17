@@ -10,10 +10,10 @@ export function addParser(parser: (source: Source) => dom.block.Block[] | undefi
 }
 export function parse(source: Source): dom.block.Block[] | undefined {
 	let result: dom.block.Block[] | undefined
-	let r: dom.block.Block[] | undefined
-	while ((r = parse(source)) && r.length > 0)
-		result = result ? result.concat(r) : r
-	filters.forEach(filter => result = result && result.filter(filter))
+	let i = 0
+	do
+		result = parsers[i++].parse(source)
+	while (!result && i < parsers.length)
 	return result
 }
 export function parseAll(source: Source): dom.block.Block[] | undefined {
