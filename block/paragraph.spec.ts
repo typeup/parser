@@ -2,17 +2,16 @@ import { Error, IO } from "@cogneco/mend"
 import { Source } from "../Source"
 import { parse } from "."
 
-describe("block.diagram", () => {
+describe("block.paragraph", () => {
 	it("simple", () => {
-		const result = parse(new Source(IO.StringReader.create("++\n<svg></svg>++\nFigure Caption."), new Error.ConsoleHandler())) || []
+		const result = parse(new Source(IO.StringReader.create("This is a single paragraph."), new Error.ConsoleHandler())) || []
 		expect(result.map(node => node.toObject())).toEqual([
 			{
-				class: "Block.Diagram",
-				value: "<svg></svg>",
+				class: "Block.Paragraph",
 				content: [
 					{
 						class: "Inline.Text",
-						value: "Figure Caption.",
+						value: "This is a single paragraph.",
 					},
 				],
 			},
