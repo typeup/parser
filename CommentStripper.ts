@@ -3,6 +3,7 @@ import { Error, IO, Uri } from "@cogneco/mend"
 export class CommentStripper extends IO.Reader {
 	private backend: IO.BufferedReader
 	private last: string | undefined
+	private disableUntil?: string
 	get readable(): boolean { return this.backend.readable }
 	get opened(): boolean { return this.backend.opened }
 	get tabSize(): number { return this.backend.tabSize }
@@ -23,16 +24,23 @@ export class CommentStripper extends IO.Reader {
 		this.backend = backend instanceof IO.BufferedReader ? backend as IO.BufferedReader : IO.BufferedReader.create(backend)
 	}
 	read(): string | undefined {
-		switch (this.backend.peek(2)) {
+		const peeked = this.backend.peek(2)
+		switch (peeked) {
+			case "++": // diagram block
+			case "%%": // code block
+				this.disableUntil = !this.disableUntil ? peeked : this.disableUntil == peeked ? undefined : this.disableUntil
+				break
 			case "//":
-				if (this.last != ":")
+				if (!this.disableUntil && this.last != ":")
 					while (this.backend.peek() != "\n")
 						this.backend.read()
 				break
 			case "/*":
-				while (this.backend.peek(2) != "*/")
-					this.backend.read()
-				this.backend.read(2)
+				if (!this.disableUntil) {
+					while (this.backend.peek(2) != "*/")
+						this.backend.read()
+					this.backend.read(2)
+				}
 				break
 		}
 		return this.last = this.backend.read()
