@@ -7,7 +7,7 @@ export class CommentStripper extends IO.Reader {
 	get readable(): boolean { return this.backend.readable }
 	get opened(): boolean { return this.backend.opened }
 	get tabSize(): number { return this.backend.tabSize }
-	get isEmpty(): Promise<boolean> {
+	get isEmpty(): boolean {
 		return this.backend.isEmpty
 	}
 	get resource(): Uri.Locator {
