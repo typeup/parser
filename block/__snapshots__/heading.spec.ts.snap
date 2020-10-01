@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block.heading level 1 1`] = `
+Array [
+  Object {
+    "class": "Block.Heading",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Heading",
+      },
+    ],
+    "level": 1,
+  },
+]
+`;
+
+exports[`block.heading level 2 1`] = `
+Array [
+  Object {
+    "class": "Block.Heading",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Heading",
+      },
+    ],
+    "level": 2,
+  },
+]
+`;
+
+exports[`block.heading level 3 1`] = `
+Array [
+  Object {
+    "class": "Block.Heading",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Heading",
+      },
+    ],
+    "level": 3,
+  },
+]
+`;
+
+exports[`block.heading level 4 1`] = `
+Array [
+  Object {
+    "class": "Block.Heading",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Heading",
+      },
+    ],
+    "level": 4,
+  },
+]
+`;
+
+exports[`block.heading level 5 1`] = `
+Array [
+  Object {
+    "class": "Block.Heading",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Heading",
+      },
+    ],
+    "level": 5,
+  },
+]
+`;
+
+exports[`block.heading level 6 1`] = `
+Array [
+  Object {
+    "class": "Block.Heading",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Heading",
+      },
+    ],
+    "level": 6,
+  },
+]
+`;

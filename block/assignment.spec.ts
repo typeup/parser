@@ -5,12 +5,6 @@ import { parse } from "."
 describe("block.assignment", () => {
 	it("simple", () => {
 		const result = parse(new Source(IO.StringReader.create("variable = value\n"), new Error.ConsoleHandler())) || []
-		expect(result.map(node => node.toObject())).toEqual([
-			{
-				class: "Block.Assignment",
-				name: "variable",
-				value: "value",
-			},
-		])
+		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

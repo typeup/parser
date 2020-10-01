@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block.table complex 1`] = `
+Array [
+  Object {
+    "class": "Block.EmptyLine",
+  },
+  Object {
+    "alignments": Array [
+      "",
+      "",
+      "",
+    ],
+    "class": "Block.Table",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "A selection of relevant properties required for creating new merchants. (r - required, o - optional)
+",
+      },
+      Object {
+        "class": "Inline.Text",
+        "value": "		",
+      },
+    ],
+    "rows": Array [
+      Object {
+        "class": "Block.TableRow",
+        "content": Array [
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "Property          ",
+              },
+            ],
+            "header": true,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "   ",
+              },
+            ],
+            "header": true,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " Description                       ",
+              },
+            ],
+            "header": true,
+          },
+        ],
+      },
+      Object {
+        "class": "Block.TableRow",
+        "content": Array [
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "name              ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " r ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " Name of the site.                 ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+      Object {
+        "class": "Block.TableRow",
+        "content": Array [
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "url               ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " r ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " URL of the site.                  ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+      Object {
+        "class": "Block.TableRow",
+        "content": Array [
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "terms             ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " o ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " The terms and conditions.         ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.table simple 1`] = `
+Array [
+  Object {
+    "alignments": Array [
+      "",
+      "",
+    ],
+    "class": "Block.Table",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Table Caption.",
+      },
+    ],
+    "rows": Array [
+      Object {
+        "class": "Block.TableRow",
+        "content": Array [
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "Header A ",
+              },
+            ],
+            "header": true,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " Header B ",
+              },
+            ],
+            "header": true,
+          },
+        ],
+      },
+      Object {
+        "class": "Block.TableRow",
+        "content": Array [
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "value A  ",
+              },
+            ],
+            "header": false,
+          },
+          Object {
+            "class": "Block.TableCell",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": " value B  ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+    ],
+  },
+]
+`;

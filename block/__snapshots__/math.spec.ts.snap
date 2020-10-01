@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block.math simple 1`] = `
+Array [
+  Object {
+    "class": "Block.Math",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "Math Caption.",
+      },
+    ],
+    "value": "a^2 + b^2 = c^2",
+  },
+]
+`;

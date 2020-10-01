@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`inline.empasize basic 1`] = `
+Array [
+  Object {
+    "class": "Inline.Emphasize",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "emphasize",
+      },
+    ],
+  },
+]
+`;
+
+exports[`inline.empasize in text 1`] = `
+Array [
+  Object {
+    "class": "Inline.Text",
+    "value": "This is a text with an ",
+  },
+  Object {
+    "class": "Inline.Emphasize",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "empasize",
+      },
+    ],
+  },
+  Object {
+    "class": "Inline.Text",
+    "value": " in it.",
+  },
+]
+`;

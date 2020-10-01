@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block.assignment simple 1`] = `
+Array [
+  Object {
+    "class": "Block.Assignment",
+    "name": "variable",
+    "value": "value",
+  },
+]
+`;

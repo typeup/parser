@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block.definitionList simple 1`] = `
+Array [
+  Object {
+    "class": "Block.DefinitionList",
+    "content": Array [
+      Object {
+        "class": "Block.DefinitionTerm",
+        "content": Array [
+          Object {
+            "class": "Inline.Text",
+            "value": "Term 1
+",
+          },
+        ],
+        "data": Array [
+          Object {
+            "class": "Block.DefinitionData",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "Description 1
+",
+              },
+            ],
+          },
+          Object {
+            "class": "Block.DefinitionData",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "Description A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.DefinitionTerm",
+        "content": Array [
+          Object {
+            "class": "Inline.Text",
+            "value": "Term 2
+",
+          },
+        ],
+        "data": Array [
+          Object {
+            "class": "Block.DefinitionData",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "Description 2
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.paragraph simple 1`] = `
+Array [
+  Object {
+    "class": "Block.Paragraph",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "This is a single paragraph.",
+      },
+    ],
+  },
+]
+`;

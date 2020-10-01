@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`inline.code basic 1`] = `
+Array [
+  Object {
+    "class": "Inline.Code",
+    "value": "inline code",
+  },
+]
+`;
+
+exports[`inline.code in text 1`] = `
+Array [
+  Object {
+    "class": "Inline.Text",
+    "value": "This is a text with an ",
+  },
+  Object {
+    "class": "Inline.Code",
+    "value": "inline code",
+  },
+  Object {
+    "class": "Inline.Text",
+    "value": " in it.",
+  },
+]
+`;

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`inline.link basic 1`] = `
+Array [
+  Object {
+    "class": "Inline.Link",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "link",
+      },
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`inline.link in text 1`] = `
+Array [
+  Object {
+    "class": "Inline.Text",
+    "value": "This is a text with an ",
+  },
+  Object {
+    "class": "Inline.Link",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "link",
+      },
+    ],
+    "target": "./destination",
+  },
+  Object {
+    "class": "Inline.Text",
+    "value": " in it.",
+  },
+]
+`;

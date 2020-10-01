@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`inline.text basic 1`] = `
+Array [
+  Object {
+    "class": "Inline.Text",
+    "value": "A simple text.",
+  },
+]
+`;

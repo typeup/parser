@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`inline.math basic 1`] = `
+Array [
+  Object {
+    "class": "Inline.Math",
+    "value": "a^2 + b^2 = c^2",
+  },
+]
+`;
+
+exports[`inline.math in text 1`] = `
+Array [
+  Object {
+    "class": "Inline.Text",
+    "value": "This is a text with an ",
+  },
+  Object {
+    "class": "Inline.Math",
+    "value": "a^2 + b^2 = c^2",
+  },
+  Object {
+    "class": "Inline.Text",
+    "value": " in it.",
+  },
+]
+`;
