@@ -11,4 +11,8 @@ describe("inline.code", () => {
 		const result = parse(new Source(IO.StringReader.create("This is a text with an %inline code% in it."), new Error.ConsoleHandler())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
+	it("html in text", () => {
+		const result = parse(new Source(IO.StringReader.create("This is a text with an %<html></html>% in it."), new Error.ConsoleHandler())) || []
+		expect(result.map(node => node.toObject())).toMatchSnapshot()
+	})
 })
