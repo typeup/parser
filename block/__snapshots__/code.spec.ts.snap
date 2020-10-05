@@ -1,6 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`block.diagram simple 1`] = `
+exports[`block.code html 1`] = `
+Array [
+  Object {
+    "class": "Block.Code",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "code Caption.",
+      },
+    ],
+    "language": "html",
+    "value": "<html>
+<head>
+<title>Title</title>
+</head>
+<body>
+</body>
+</html>",
+  },
+]
+`;
+
+exports[`block.code simple 1`] = `
 Array [
   Object {
     "class": "Block.Code",
