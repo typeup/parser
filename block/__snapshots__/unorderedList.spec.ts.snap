@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block.unorderedList multi level 1`] = `
+Array [
+  Object {
+    "class": "Block.UnorderedList",
+    "content": Array [
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item B
+",
+              },
+            ],
+          },
+          Object {
+            "class": "Block.UnorderedList",
+            "content": Array [
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "item B1
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "item B2
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item C
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.unorderedList multi level 2`] = `
+Array [
+  Object {
+    "class": "Block.OrderedList",
+    "content": Array [
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "itemized A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "itemized B
+",
+              },
+            ],
+          },
+          Object {
+            "class": "Block.OrderedList",
+            "content": Array [
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "itemized B1
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "itemized B2
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "itemized C
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.unorderedList multi level 3`] = `
+Array [
+  Object {
+    "class": "Block.UnorderedList",
+    "content": Array [
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item B
+",
+              },
+            ],
+          },
+          Object {
+            "class": "Block.OrderedList",
+            "content": Array [
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "itemized B1
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "itemized B2
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item C
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.unorderedList multi level 4`] = `
+Array [
+  Object {
+    "class": "Block.OrderedList",
+    "content": Array [
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "itemized A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "itemized B
+",
+              },
+            ],
+          },
+          Object {
+            "class": "Block.UnorderedList",
+            "content": Array [
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "item B1
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "class": "Block.ListItem",
+                "content": Array [
+                  Object {
+                    "class": "Block.Paragraph",
+                    "content": Array [
+                      Object {
+                        "class": "Inline.Text",
+                        "value": "item B2
+",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "itemized C
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.unorderedList paragraph after 1`] = `
+Array [
+  Object {
+    "class": "Block.UnorderedList",
+    "content": Array [
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item B
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  Object {
+    "class": "Block.Paragraph",
+    "content": Array [
+      Object {
+        "class": "Inline.Text",
+        "value": "This is a simple list.
+",
+      },
+    ],
+  },
+]
+`;
+
+exports[`block.unorderedList single level 1`] = `
+Array [
+  Object {
+    "class": "Block.UnorderedList",
+    "content": Array [
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item A
+",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "class": "Block.ListItem",
+        "content": Array [
+          Object {
+            "class": "Block.Paragraph",
+            "content": Array [
+              Object {
+                "class": "Inline.Text",
+                "value": "item B
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
