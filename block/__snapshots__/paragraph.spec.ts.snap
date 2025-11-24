@@ -1,35 +1,35 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.definitionList simple 1`] = `
-Array [
-  Object {
-    "class": "Block.DefinitionList",
-    "content": Array [
-      Object {
-        "class": "Block.DefinitionTerm",
-        "content": Array [
-          Object {
-            "class": "Inline.Text",
+exports[`block.definitionList > simple 1`] = `
+[
+  {
+    "class": "block.list.definition",
+    "content": [
+      {
+        "class": "block.list.definition.term",
+        "content": [
+          {
+            "class": "inline.text",
             "value": "Term 1
 ",
           },
         ],
-        "data": Array [
-          Object {
-            "class": "Block.DefinitionData",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+        "data": [
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "Description 1
 ",
               },
             ],
           },
-          Object {
-            "class": "Block.DefinitionData",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "Description A
 ",
               },
@@ -37,21 +37,21 @@ Array [
           },
         ],
       },
-      Object {
-        "class": "Block.DefinitionTerm",
-        "content": Array [
-          Object {
-            "class": "Inline.Text",
+      {
+        "class": "block.list.definition.term",
+        "content": [
+          {
+            "class": "inline.text",
             "value": "Term 2
 ",
           },
         ],
-        "data": Array [
-          Object {
-            "class": "Block.DefinitionData",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+        "data": [
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "Description 2
 ",
               },
@@ -64,13 +64,91 @@ Array [
 ]
 `;
 
-exports[`block.paragraph simple 1`] = `
-Array [
-  Object {
-    "class": "Block.Paragraph",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`block.paragraph > simple 1`] = `
+[
+  {
+    "class": "block.paragraph",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "This is a single paragraph.",
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.definitionList > simple 1`] = `
+[
+  {
+    "class": "block.list.definition",
+    "content": [
+      {
+        "class": "block.list.definition.term",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Term 1
+",
+          },
+        ],
+        "data": [
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Description 1
+",
+              },
+            ],
+          },
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Description A
+",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        "class": "block.list.definition.term",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Term 2
+",
+          },
+        ],
+        "data": [
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Description 2
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.paragraph > simple 1`] = `
+[
+  {
+    "class": "block.paragraph",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "This is a single paragraph.",
       },
     ],

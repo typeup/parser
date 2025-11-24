@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`inline.empasize basic 1`] = `
-Array [
-  Object {
-    "class": "Inline.Emphasize",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`inline.emphasize > basic 1`] = `
+[
+  {
+    "class": "inline.emphasize",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "emphasize",
       },
     ],
@@ -14,23 +14,59 @@ Array [
 ]
 `;
 
-exports[`inline.empasize in text 1`] = `
-Array [
-  Object {
-    "class": "Inline.Text",
+exports[`inline.emphasize > in text 1`] = `
+[
+  {
+    "class": "inline.text",
     "value": "This is a text with an ",
   },
-  Object {
-    "class": "Inline.Emphasize",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
-        "value": "empasize",
+  {
+    "class": "inline.emphasize",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "emphasize",
       },
     ],
   },
-  Object {
-    "class": "Inline.Text",
+  {
+    "class": "inline.text",
+    "value": " in it.",
+  },
+]
+`;
+
+exports[`parser.inline.emphasize > basic 1`] = `
+[
+  {
+    "class": "inline.emphasize",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "emphasize",
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.inline.emphasize > in text 1`] = `
+[
+  {
+    "class": "inline.text",
+    "value": "This is a text with an ",
+  },
+  {
+    "class": "inline.emphasize",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "emphasize",
+      },
+    ],
+  },
+  {
+    "class": "inline.text",
     "value": " in it.",
   },
 ]

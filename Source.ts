@@ -1,28 +1,34 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 
-export class Source extends IO.BufferedReader implements Error.Handler {
-	constructor(reader: IO.Reader, private errorHandler: Error.Handler) {
+export class Source extends mendly.Reader.Buffered implements mendly.Error.Handler {
+	constructor(reader: mendly.Reader, private errorHandler: mendly.Error.Handler) {
 		super(reader)
 	}
-	raise(message: Error.Message): void
-	raise(message: string, level?: Error.Level, type?: string, region?: Error.Region): void
-	raise(message: string | Error.Message, level?: Error.Level, type = "lexical", region?: Error.Region): void {
-		if (!(message instanceof Error.Message)) {
+	raise(message: mendly.Error): void
+	raise(message: string, level?: mendly.Error.Level, type?: string, region?: mendly.Error.Region): void
+	raise(
+		message: string | mendly.Error,
+		level?: mendly.Error.Level,
+		type = "lexical",
+		region?: mendly.Error.Region
+	): void {
+		if (!(message instanceof mendly.Error)) {
 			if (!level)
-				level = Error.Level.Critical
+				level = "critical"
 			if (!region)
 				region = this.region
-			message = new Error.Message(message as string, level, type, region)
+			message = new mendly.Error(message as string, level, type, region)
 		}
-		this.errorHandler.raise(message as Error.Message)
+		this.errorHandler.raise(message as mendly.Error)
 	}
 	requirePrefix(prefix: string | string[]): Source {
-		return new Source(new IO.PrefixReader(this, prefix), this.errorHandler)
+		return new Source(new mendly.Reader.Prefix(this, prefix), this.errorHandler)
 	}
 	till(endMark: string | string[]): Source {
-		return new Source(IO.TillReader.create(this, endMark), this.errorHandler)
+		return new Source(mendly.Reader.Till.create(this, endMark), this.errorHandler)
 	}
 	until(endMark: string | string[]): Source {
-		return new Source(IO.UntilReader.create(this, endMark), this.errorHandler)
+		return new Source(mendly.Reader.Until.create(this, endMark), this.errorHandler)
 	}
 }
+export namespace Source {}

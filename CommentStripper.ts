@@ -1,27 +1,36 @@
-import { Error, IO, Uri } from "@cogneco/mend"
+import { mendly } from "mendly"
 
-export class CommentStripper extends IO.Reader {
-	private backend: IO.BufferedReader
+export class CommentStripper extends mendly.Reader {
+	private backend: mendly.Reader.Buffered
 	private last: string | undefined
 	private disableUntil?: string
-	get readable(): boolean { return this.backend.readable }
-	get opened(): boolean { return this.backend.opened }
-	get tabSize(): number { return this.backend.tabSize }
-	get isEmpty(): boolean {
-		return this.backend.isEmpty
+	get readable(): boolean {
+		return this.backend.readable
 	}
-	get resource(): Uri.Locator {
+	get opened(): boolean {
+		return this.backend.opened
+	}
+	get tabSize(): number {
+		return this.backend.tabSize
+	}
+	get empty(): boolean {
+		return this.backend.empty
+	}
+	get resource(): mendly.Uri {
 		return this.backend.resource
 	}
-	get location(): Error.Location {
+	get location(): mendly.Error.Location {
 		return this.backend.location
 	}
-	get region(): Error.Region {
+	get region(): mendly.Error.Region {
 		return this.backend.region
 	}
-	constructor(backend: IO.Reader) {
+	constructor(backend: mendly.Reader) {
 		super()
-		this.backend = backend instanceof IO.BufferedReader ? backend as IO.BufferedReader : IO.BufferedReader.create(backend)
+		this.backend =
+			backend instanceof mendly.Reader.Buffered
+				? (backend as mendly.Reader.Buffered)
+				: mendly.Reader.Buffered.create(backend)
 	}
 	read(): string | undefined {
 		const peeked = this.backend.peek(2)
@@ -43,9 +52,9 @@ export class CommentStripper extends IO.Reader {
 				}
 				break
 		}
-		return this.last = this.backend.read()
+		return (this.last = this.backend.read())
 	}
-	mark(): Error.Region {
+	mark(): mendly.Error.Region {
 		return this.backend.mark()
 	}
 	close(): Promise<boolean> {

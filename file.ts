@@ -1,10 +1,10 @@
-import { Error, IO, Uri } from "@cogneco/mend"
-import * as dom from "@typeup/dom"
-import { Source } from "./Source"
+import { dom } from "@typeup/dom"
+import { mendly } from "mendly"
+import { block } from "./block"
 import { CommentStripper } from "./CommentStripper"
-import * as block from "./block"
+import { Source } from "./Source"
 
-export function parse(reader: IO.Reader | undefined, handler: Error.Handler): dom.File | undefined {
+export function parse(reader: mendly.Reader | undefined, handler: mendly.Error.Handler): dom.File | undefined {
 	let result: dom.File | undefined
 	if (reader) {
 		const source = new Source(new CommentStripper(reader), handler)
@@ -12,6 +12,6 @@ export function parse(reader: IO.Reader | undefined, handler: Error.Handler): do
 	}
 	return result
 }
-export function open(path: Uri.Locator | undefined, handler: Error.Handler): dom.File | undefined {
-	return path ? parse(IO.Reader.open(path), handler) : undefined
+export function open(path: mendly.Uri | undefined, handler: mendly.Error.Handler): dom.File | undefined {
+	return path ? parse(mendly.Reader.open(path), handler) : undefined
 }

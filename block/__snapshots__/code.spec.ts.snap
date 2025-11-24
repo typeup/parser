@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.code html 1`] = `
-Array [
-  Object {
-    "class": "Block.Code",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`parser.block.code > html 1`] = `
+[
+  {
+    "class": "block.code",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "code Caption.",
       },
     ],
@@ -22,13 +22,51 @@ Array [
 ]
 `;
 
-exports[`block.code simple 1`] = `
-Array [
-  Object {
-    "class": "Block.Code",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`parser.block.code > simple 1`] = `
+[
+  {
+    "class": "block.code",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Figure Caption.",
+      },
+    ],
+    "language": "",
+    "value": "code block",
+  },
+]
+`;
+
+exports[`parser.parser.block.code > html 1`] = `
+[
+  {
+    "class": "block.code",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "code Caption.",
+      },
+    ],
+    "language": "html",
+    "value": "<html>
+<head>
+<title>Title</title>
+</head>
+<body>
+</body>
+</html>",
+  },
+]
+`;
+
+exports[`parser.parser.block.code > simple 1`] = `
+[
+  {
+    "class": "block.code",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "Figure Caption.",
       },
     ],

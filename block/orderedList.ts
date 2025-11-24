@@ -1,32 +1,32 @@
-import * as dom from "@typeup/dom"
+import { dom } from "@typeup/dom"
 import { Source } from "../Source"
-import * as block from "./block"
+import { block } from "./block"
 
-function parse(source: Source): dom.block.Block[] | undefined {
+function parse(source: Source): dom.Block[] | undefined {
 	let peeked = ""
 	let p: string | undefined
-	while (p = source.peekIs(peeked + "\t"))
+	while ((p = source.peekIs(peeked + "\t")))
 		peeked = p
-	let result: dom.block.Block[] | undefined
+	let result: dom.Block[] | undefined
 	if (source.readIf(peeked + "1.")) {
 		while ((source.peek() || "").match(/\s/))
 			source.read()
-		const current = new dom.block.ListItem(block.parseAll(source.requirePrefix("\t")) || [], source.mark())
+		const current = new dom.Block.List.Item(block.parseAll(source.requirePrefix("\t")) || [], source.mark())
 		const next = block.parse(source)
 		let index = 0
-		while (next && next.length > 0 && next[index] instanceof dom.block.EmptyLine)
+		while (next && next.length > 0 && next[index] instanceof dom.Block.EmptyLine)
 			index++
-		if (next && next.length > 0 && next[index] instanceof dom.block.OrderedList) {
+		if (next && next.length > 0 && next[index] instanceof dom.Block.List.Ordered) {
 			while (index-- > 0)
 				next.shift()
-			next[0] = new dom.block.OrderedList([current].concat((next[0] as dom.block.OrderedList).content))
+			next[0] = new dom.Block.List.Ordered([current].concat((next[0] as dom.Block.List.Ordered).content))
 			result = next
 		} else {
-			result = [new dom.block.OrderedList([current])]
+			result = [new dom.Block.List.Ordered([current])]
 			if (next && next.length > 0)
 				result = result.concat(next)
 		}
 	}
 	return result
 }
-block.addParser(parse)
+block.register(parse)

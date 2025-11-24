@@ -1,57 +1,57 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.table complex 1`] = `
-Array [
-  Object {
-    "class": "Block.EmptyLine",
+exports[`block.table > complex 1`] = `
+[
+  {
+    "class": "block.emptyLine",
   },
-  Object {
-    "alignments": Array [
+  {
+    "alignments": [
       "",
       "",
       "",
     ],
-    "class": "Block.Table",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+    "class": "block.table",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "A selection of relevant properties required for creating new merchants. (r - required, o - optional)
 ",
       },
-      Object {
-        "class": "Inline.Text",
+      {
+        "class": "inline.text",
         "value": "		",
       },
     ],
-    "rows": Array [
-      Object {
-        "class": "Block.TableRow",
-        "content": Array [
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+    "rows": [
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "Property          ",
               },
             ],
             "header": true,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "   ",
               },
             ],
             "header": true,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " Description                       ",
               },
             ],
@@ -59,34 +59,34 @@ Array [
           },
         ],
       },
-      Object {
-        "class": "Block.TableRow",
-        "content": Array [
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "name              ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " r ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " Name of the site.                 ",
               },
             ],
@@ -94,34 +94,34 @@ Array [
           },
         ],
       },
-      Object {
-        "class": "Block.TableRow",
-        "content": Array [
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "url               ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " r ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " URL of the site.                  ",
               },
             ],
@@ -129,34 +129,34 @@ Array [
           },
         ],
       },
-      Object {
-        "class": "Block.TableRow",
-        "content": Array [
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "terms             ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " o ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " The terms and conditions.         ",
               },
             ],
@@ -169,39 +169,39 @@ Array [
 ]
 `;
 
-exports[`block.table simple 1`] = `
-Array [
-  Object {
-    "alignments": Array [
+exports[`block.table > simple 1`] = `
+[
+  {
+    "alignments": [
       "",
       "",
     ],
-    "class": "Block.Table",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+    "class": "block.table",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "Table Caption.",
       },
     ],
-    "rows": Array [
-      Object {
-        "class": "Block.TableRow",
-        "content": Array [
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+    "rows": [
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "Header A ",
               },
             ],
             "header": true,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " Header B ",
               },
             ],
@@ -209,24 +209,263 @@ Array [
           },
         ],
       },
-      Object {
-        "class": "Block.TableRow",
-        "content": Array [
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": "value A  ",
               },
             ],
             "header": false,
           },
-          Object {
-            "class": "Block.TableCell",
-            "content": Array [
-              Object {
-                "class": "Inline.Text",
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " value B  ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.table > complex 1`] = `
+[
+  {
+    "class": "block.emptyLine",
+  },
+  {
+    "alignments": [
+      "",
+      "",
+      "",
+    ],
+    "class": "block.table",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "A selection of relevant properties required for creating new merchants. (r - required, o - optional)
+",
+      },
+      {
+        "class": "inline.text",
+        "value": "		",
+      },
+    ],
+    "rows": [
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Property          ",
+              },
+            ],
+            "header": true,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "   ",
+              },
+            ],
+            "header": true,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " Description                       ",
+              },
+            ],
+            "header": true,
+          },
+        ],
+      },
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "name              ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " r ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " Name of the site.                 ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "url               ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " r ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " URL of the site.                  ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "terms             ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " o ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " The terms and conditions.         ",
+              },
+            ],
+            "header": false,
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.table > simple 1`] = `
+[
+  {
+    "alignments": [
+      "",
+      "",
+    ],
+    "class": "block.table",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Table Caption.",
+      },
+    ],
+    "rows": [
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Header A ",
+              },
+            ],
+            "header": true,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": " Header B ",
+              },
+            ],
+            "header": true,
+          },
+        ],
+      },
+      {
+        "class": "block.table.row",
+        "content": [
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "value A  ",
+              },
+            ],
+            "header": false,
+          },
+          {
+            "class": "block.table.cell",
+            "content": [
+              {
+                "class": "inline.text",
                 "value": " value B  ",
               },
             ],

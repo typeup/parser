@@ -1,12 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.math simple 1`] = `
-Array [
-  Object {
-    "class": "Block.Math",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`block.math > simple 1`] = `
+[
+  {
+    "class": "block.math",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Math Caption.",
+      },
+    ],
+    "value": "a^2 + b^2 = c^2",
+  },
+]
+`;
+
+exports[`parser.block.math > simple 1`] = `
+[
+  {
+    "class": "block.math",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "Math Caption.",
       },
     ],

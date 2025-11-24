@@ -1,17 +1,26 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { block } from "."
 
-describe("block.paragraph", () => {
+describe("parser.block.paragraph", () => {
 	it("simple", () => {
-		const result = parse(new Source(IO.StringReader.create("This is a single paragraph."), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(
+				new Source(mendly.Reader.String.create("This is a single paragraph."), new mendly.Error.Handler.Console())
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })
 
-describe("block.definitionList", () => {
+describe("parser.block.definitionList", () => {
 	it("simple", () => {
-		const result = parse(new Source(IO.StringReader.create("Term 1\n: Description 1\n: Description A\nTerm 2\n: Description 2\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(
+				new Source(
+					mendly.Reader.String.create("Term 1\n: Description 1\n: Description A\nTerm 2\n: Description 2\n"),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

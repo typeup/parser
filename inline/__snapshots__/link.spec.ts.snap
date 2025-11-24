@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`inline.link basic 1`] = `
-Array [
-  Object {
-    "class": "Inline.Link",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`inline.link > basic 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "link",
       },
     ],
@@ -15,24 +15,62 @@ Array [
 ]
 `;
 
-exports[`inline.link in text 1`] = `
-Array [
-  Object {
-    "class": "Inline.Text",
+exports[`inline.link > in text 1`] = `
+[
+  {
+    "class": "inline.text",
     "value": "This is a text with an ",
   },
-  Object {
-    "class": "Inline.Link",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "link",
       },
     ],
     "target": "./destination",
   },
-  Object {
-    "class": "Inline.Text",
+  {
+    "class": "inline.text",
+    "value": " in it.",
+  },
+]
+`;
+
+exports[`parser.inline.link > basic 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > in text 1`] = `
+[
+  {
+    "class": "inline.text",
+    "value": "This is a text with an ",
+  },
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "target": "./destination",
+  },
+  {
+    "class": "inline.text",
     "value": " in it.",
   },
 ]

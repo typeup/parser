@@ -1,10 +1,12 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { block } from "."
 
-describe("block.assignment", () => {
+describe("parser.block.assignment", () => {
 	it("simple", () => {
-		const result = parse(new Source(IO.StringReader.create("variable = value\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("variable = value\n"), new mendly.Error.Handler.Console())) ||
+			[]
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

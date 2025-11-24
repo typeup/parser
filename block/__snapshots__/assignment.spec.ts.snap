@@ -1,9 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.assignment simple 1`] = `
-Array [
-  Object {
-    "class": "Block.Assignment",
+exports[`block.assignment > simple 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "variable",
+    "value": "value",
+  },
+]
+`;
+
+exports[`parser.block.assignment > simple 1`] = `
+[
+  {
+    "class": "block.assignment",
     "name": "variable",
     "value": "value",
   },

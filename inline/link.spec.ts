@@ -1,14 +1,23 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { inline } from "."
 
-describe("inline.link", () => {
+describe("parser.inline.link", () => {
 	it("basic", () => {
-		const result = parse(new Source(IO.StringReader.create("[./destination link]"), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(
+				new Source(mendly.Reader.String.create("[./destination link]"), new mendly.Error.Handler.Console())
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("in text", () => {
-		const result = parse(new Source(IO.StringReader.create("This is a text with an [./destination link] in it."), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(
+				new Source(
+					mendly.Reader.String.create("This is a text with an [./destination link] in it."),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

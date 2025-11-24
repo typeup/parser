@@ -1,14 +1,28 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { block } from "."
 
-describe("block.code", () => {
+describe("parser.parser.block.code", () => {
 	it("simple", () => {
-		const result = parse(new Source(IO.StringReader.create("%%\ncode block\n%%\nFigure Caption."), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(
+				new Source(
+					mendly.Reader.String.create("%%\ncode block\n%%\nFigure Caption."),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("html", () => {
-		const result = parse(new Source(IO.StringReader.create("%% html\n<html>\n<head>\n<title>Title</title>\n</head>\n<body>\n</body>\n</html>\n%%\ncode Caption."), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(
+				new Source(
+					mendly.Reader.String.create(
+						"%% html\n<html>\n<head>\n<title>Title</title>\n</head>\n<body>\n</body>\n</html>\n%%\ncode Caption."
+					),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

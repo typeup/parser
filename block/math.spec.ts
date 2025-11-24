@@ -1,10 +1,16 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { block } from "."
 
-describe("block.math", () => {
+describe("parser.block.math", () => {
 	it("simple", () => {
-		const result = parse(new Source(IO.StringReader.create("$$\na^2 + b^2 = c^2$$\nMath Caption."), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(
+				new Source(
+					mendly.Reader.String.create("$$\na^2 + b^2 = c^2$$\nMath Caption."),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

@@ -1,13 +1,13 @@
-import * as dom from "@typeup/dom"
+import { dom } from "@typeup/dom"
 import { Source } from "../Source"
-import * as inline from "./inline"
+import { inline } from "./inline"
 
-function parse(source: Source): dom.inline.Inline[] | undefined {
-	let result: dom.inline.Inline[] | undefined
+function parse(source: Source): dom.Inline[] | undefined {
+	let result: dom.Inline[] | undefined
 	if (source.readIf("$")) {
-		result = [new dom.inline.Math(source.till("$").readAll() || "", source.mark())]
+		result = [new dom.Inline.Math(source.till("$").readAll() || "", source.mark())]
 		if (!source.readIf("$"))
-			source.raise("Expected \"$\" as end of inline math.")
+			source.raise('Expected "$" as end of inline math.')
 	}
 	return result
 }

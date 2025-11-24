@@ -1,13 +1,13 @@
-import * as dom from "@typeup/dom"
-import * as inline from "./inline"
+import { dom } from "@typeup/dom"
 import { Source } from "../Source"
+import { inline } from "./inline"
 
-function parse(source: Source): dom.inline.Inline[] | undefined {
-	let result: dom.inline.Inline[] | undefined
+function parse(source: Source): dom.Inline[] | undefined {
+	let result: dom.Inline[] | undefined
 	if (source.readIf("%")) {
-		result = [new dom.inline.Code(source.till("%").readAll() || "", source.mark())]
+		result = [new dom.Inline.Code(source.till("%").readAll() || "", source.mark())]
 		if (!source.readIf("%"))
-			source.raise("Expected \"%\" as end of inline code.")
+			source.raise('Expected "%" as end of inline code.')
 	}
 	return result
 }

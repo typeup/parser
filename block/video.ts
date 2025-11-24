@@ -1,24 +1,24 @@
-import { Uri } from "@cogneco/mend"
-import * as dom from "@typeup/dom"
+import { dom } from "@typeup/dom"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import * as block from "./block"
+import { block } from "./block"
 
-function parse(source: Source): dom.block.Block[] | undefined {
-	let result: dom.block.Block[] | undefined
+function parse(source: Source): dom.Block[] | undefined {
+	let result: dom.Block[] | undefined
 	if (source.readIf("!video ")) {
-		const video = Uri.Locator.parse(source.till([" ", "\n"]).readAll() || "")
+		const video = mendly.Uri.parse(source.till([" ", "\n"]).readAll() || "")
 		const classes = source.readIf(" ") ? (source.till("\n").readAll() || "").split(" ") : []
 		if (!source.readIf("\n"))
 			source.raise("Expected newline as end of video.")
 		const region = source.mark()
 		result = block.parse(source) || []
 		if (video) {
-			if (result.length > 0 && result[0] instanceof dom.block.Paragraph)
-				result[0] = new dom.block.Video(video, classes, (result[0] as dom.block.Paragraph).content, region)
+			if (result.length > 0 && result[0] instanceof dom.Block.Paragraph)
+				result[0] = new dom.Block.Video(video, classes, (result[0] as dom.Block.Paragraph).content, region)
 			else
-				result.unshift(new dom.block.Video(video, classes, [], region))
+				result.unshift(new dom.Block.Video(video, classes, [], region))
 		}
 	}
 	return result
 }
-block.addParser(parse)
+block.register(parse)

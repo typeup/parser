@@ -1,14 +1,22 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { inline } from "."
 
-describe("inline.math", () => {
+describe("parser.inline.math", () => {
 	it("basic", () => {
-		const result = parse(new Source(IO.StringReader.create("$a^2 + b^2 = c^2$"), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(new Source(mendly.Reader.String.create("$a^2 + b^2 = c^2$"), new mendly.Error.Handler.Console())) ||
+			[]
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("in text", () => {
-		const result = parse(new Source(IO.StringReader.create("This is a text with an $a^2 + b^2 = c^2$ in it."), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(
+				new Source(
+					mendly.Reader.String.create("This is a text with an $a^2 + b^2 = c^2$ in it."),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

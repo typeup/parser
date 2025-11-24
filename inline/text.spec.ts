@@ -1,10 +1,11 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { inline } from "."
 
-describe("inline.text", () => {
+describe("parser.inline.text", () => {
 	it("basic", () => {
-		const result = parse(new Source(IO.StringReader.create("A simple text."), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(new Source(mendly.Reader.String.create("A simple text."), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

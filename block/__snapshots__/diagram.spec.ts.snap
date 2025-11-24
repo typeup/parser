@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.diagram simple 1`] = `
-Array [
-  Object {
-    "class": "Block.Diagram",
-    "content": Array [
-      Object {
-        "class": "Inline.Text",
+exports[`parser.block.diagram > simple 1`] = `
+[
+  {
+    "class": "block.diagram",
+    "content": [
+      {
+        "class": "inline.text",
         "value": "Figure Caption.",
       },
     ],

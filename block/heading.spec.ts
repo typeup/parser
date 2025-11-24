@@ -1,30 +1,36 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { block } from "."
 
-describe("block.heading", () => {
+describe("parser.block.heading", () => {
 	it("level 1", () => {
-		const result = parse(new Source(IO.StringReader.create("# Heading\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("# Heading\n"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("level 2", () => {
-		const result = parse(new Source(IO.StringReader.create("## Heading\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("## Heading\n"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("level 3", () => {
-		const result = parse(new Source(IO.StringReader.create("### Heading\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("### Heading\n"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("level 4", () => {
-		const result = parse(new Source(IO.StringReader.create("#### Heading\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("#### Heading\n"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("level 5", () => {
-		const result = parse(new Source(IO.StringReader.create("##### Heading\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("##### Heading\n"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("level 6", () => {
-		const result = parse(new Source(IO.StringReader.create("###### Heading\n"), new Error.ConsoleHandler())) || []
+		const result =
+			block.parse(new Source(mendly.Reader.String.create("###### Heading\n"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })

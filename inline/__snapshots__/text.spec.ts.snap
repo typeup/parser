@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`inline.text basic 1`] = `
-Array [
-  Object {
-    "class": "Inline.Text",
+exports[`parser.inline.text > basic 1`] = `
+[
+  {
+    "class": "inline.text",
     "value": "A simple text.",
   },
 ]

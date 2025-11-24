@@ -1,0 +1,156 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, master, "master-*"]
+  push:
+    branches: [main, master, "master-*"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      src: ${{ steps.changes.outputs.src }}
+      deps: ${{ steps.changes.outputs.deps }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'src/**'
+              - '*.ts'
+              - 'Block/**'
+              - 'Inline/**'
+              - 'tsconfig*.json'
+            deps:
+              - 'package*.json'
+              - '.npmrc'
+
+  quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.src == 'true'
+    strategy:
+      matrix:
+        check: [lint, test, build, coverage, audit]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        if: matrix.check == 'lint'
+        run: npm run lint
+
+      - name: Run tests
+        if: matrix.check == 'test'
+        run: npm run test
+
+      - name: Run build
+        if: matrix.check == 'build'
+        run: npm run build
+
+      - name: Run coverage
+        if: matrix.check == 'coverage'
+        run: npm run coverage
+
+      - name: Security audit
+        if: matrix.check == 'audit'
+        run: npm audit --audit-level moderate
+
+      - name: Upload coverage to Codecov
+        if: matrix.check == 'coverage'
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ./coverage
+          fail_ci_if_error: true
+
+  compatibility:
+    name: Node.js Compatibility
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.src == 'true'
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test
+
+  type-check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.src == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check CJS
+        run: npx tsc -p tsconfig.cjs.json --noEmit
+
+      - name: Type check MJS
+        run: npx tsc -p tsconfig.mjs.json --noEmit
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3
+        with:
+          fail-on-severity: moderate
+
+  status-check:
+    name: Status Check
+    runs-on: ubuntu-latest
+    needs: [quality, compatibility, type-check]
+    if: always()
+    steps:
+      - name: Check all jobs
+        run: |
+          if [[ "${{ needs.quality.result }}" == "failure" || "${{ needs.compatibility.result }}" == "failure" || "${{ needs.type-check.result }}" == "failure" ]]; then
+            echo "One or more jobs failed"
+            exit 1
+          fi
+          echo "All checks passed!"

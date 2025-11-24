@@ -1,0 +1,122 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - "release/*"
+  workflow_dispatch:
+    inputs:
+      version-type:
+        description: "Version bump type"
+        required: true
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prerelease
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  version-bump:
+    name: Version Bump & Release
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'chore(release):')"
+    outputs:
+      version: ${{ steps.version.outputs.new_version }}
+      tag: ${{ steps.version.outputs.tag }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run verify
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine version bump
+        id: bump-type
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "type=${{ github.event.inputs.version-type }}" >> $GITHUB_OUTPUT
+          else
+            # Auto-detect version bump based on commit messages
+            if git log --format=%B -n 20 | grep -q "BREAKING CHANGE\|!:"; then
+              echo "type=major" >> $GITHUB_OUTPUT
+            elif git log --format=%B -n 20 | grep -qE "^feat(\(.+\))?:"; then
+              echo "type=minor" >> $GITHUB_OUTPUT
+            else
+              echo "type=patch" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Bump version
+        id: version
+        run: |
+          npm version ${{ steps.bump-type.outputs.type }} --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$NEW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update CHANGELOG
+        run: |
+          if [ ! -f CHANGELOG.md ]; then
+            echo "# Changelog" > CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          # Add new version entry
+          sed -i "2i\\## [${{ steps.version.outputs.new_version }}] - $(date +%Y-%m-%d)\n" CHANGELOG.md
+
+      - name: Commit and tag
+        run: |
+          git add package.json CHANGELOG.md
+          git commit -m "chore(release): bump version to ${{ steps.version.outputs.new_version }}"
+          git tag ${{ steps.version.outputs.tag }}
+          git push origin HEAD --tags
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          release_name: Release ${{ steps.version.outputs.new_version }}
+          body: |
+            ## Changes
+
+            See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/${{ steps.version.outputs.tag }}/CHANGELOG.md) for details.
+
+            ## Installation
+
+            ```bash
+            npm install @typeup/dom@${{ steps.version.outputs.new_version }}
+            ```
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.new_version, '-') }}

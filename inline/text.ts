@@ -1,9 +1,9 @@
-import * as dom from "@typeup/dom"
+import { dom } from "@typeup/dom"
 import { Source } from "../Source"
-import * as inline from "./inline"
+import { inline } from "./inline"
 
-function parse(source: Source): dom.inline.Inline[] | undefined {
-	let result: dom.inline.Inline[] | undefined
+function parse(source: Source): dom.Inline[] | undefined {
+	let result: dom.Inline[] | undefined
 	let value = source.read()
 	if (value == "\\")
 		value = source.read()
@@ -11,13 +11,13 @@ function parse(source: Source): dom.inline.Inline[] | undefined {
 	if (value && value != "\0") {
 		result = inline.parse(source)
 		if (!result)
-			result = [new dom.inline.Text(value, region) as dom.inline.Inline]
-		else if (result.length > 0 && result[0] instanceof dom.inline.Text) {
-			value += (result[0] as dom.inline.Text).value
+			result = [new dom.Inline.Text(value, region) as dom.Inline]
+		else if (result.length > 0 && result[0] instanceof dom.Inline.Text) {
+			value += (result[0] as dom.Inline.Text).value
 			region = region.merge(result[0].region)
-			result[0] = new dom.inline.Text(value, region)
+			result[0] = new dom.Inline.Text(value, region)
 		} else
-			result = [new dom.inline.Text(value, region) as dom.inline.Inline].concat(result)
+			result = [new dom.Inline.Text(value, region) as dom.Inline].concat(result)
 	}
 	return result
 }

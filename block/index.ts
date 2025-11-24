@@ -1,5 +1,4 @@
 import "./assignment"
-import { parse, parseAll } from "./block"
 import "./chapter"
 import "./code"
 import "./diagram"
@@ -15,8 +14,9 @@ import "./section"
 import "./table"
 import "./unorderedList"
 import "./video"
+import { block as _block } from "./block"
 
-export {
-	parse,
-	parseAll,
+export namespace block {
+	export const parse = _block.parse
+	export const parseAll = _block.parseAll
 }

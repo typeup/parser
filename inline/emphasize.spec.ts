@@ -1,14 +1,21 @@
-import { Error, IO } from "@cogneco/mend"
+import { mendly } from "mendly"
 import { Source } from "../Source"
-import { parse } from "."
+import { inline } from "."
 
-describe("inline.empasize", () => {
+describe("parser.inline.emphasize", () => {
 	it("basic", () => {
-		const result = parse(new Source(IO.StringReader.create("_emphasize_"), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(new Source(mendly.Reader.String.create("_emphasize_"), new mendly.Error.Handler.Console())) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 	it("in text", () => {
-		const result = parse(new Source(IO.StringReader.create("This is a text with an _empasize_ in it."), new Error.ConsoleHandler())) || []
+		const result =
+			inline.parse(
+				new Source(
+					mendly.Reader.String.create("This is a text with an _emphasize_ in it."),
+					new mendly.Error.Handler.Console()
+				)
+			) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })
