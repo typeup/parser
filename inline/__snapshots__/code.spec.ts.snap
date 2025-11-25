@@ -1,48 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`inline.code > basic 1`] = `
-[
-  {
-    "class": "inline.code",
-    "value": "inline code",
-  },
-]
-`;
-
-exports[`inline.code > html in text 1`] = `
-[
-  {
-    "class": "inline.text",
-    "value": "This is a text with an ",
-  },
-  {
-    "class": "inline.code",
-    "value": "<html></html>",
-  },
-  {
-    "class": "inline.text",
-    "value": " in it.",
-  },
-]
-`;
-
-exports[`inline.code > in text 1`] = `
-[
-  {
-    "class": "inline.text",
-    "value": "This is a text with an ",
-  },
-  {
-    "class": "inline.code",
-    "value": "inline code",
-  },
-  {
-    "class": "inline.text",
-    "value": " in it.",
-  },
-]
-`;
-
 exports[`parser.inline.code > basic 1`] = `
 [
   {

@@ -2,7 +2,7 @@ import { mendly } from "mendly"
 import { Source } from "../Source"
 import { block } from "."
 
-describe("parser.parser.block.code", () => {
+describe("parser.block.code", () => {
 	it("simple", () => {
 		const result =
 			block.parse(

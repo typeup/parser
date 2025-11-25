@@ -1,15 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`block.assignment > simple 1`] = `
-[
-  {
-    "class": "block.assignment",
-    "name": "variable",
-    "value": "value",
-  },
-]
-`;
-
 exports[`parser.block.assignment > simple 1`] = `
 [
   {

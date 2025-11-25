@@ -1,43 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`inline.link > basic 1`] = `
-[
-  {
-    "class": "inline.link",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "link",
-      },
-    ],
-    "target": "./destination",
-  },
-]
-`;
-
-exports[`inline.link > in text 1`] = `
-[
-  {
-    "class": "inline.text",
-    "value": "This is a text with an ",
-  },
-  {
-    "class": "inline.link",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "link",
-      },
-    ],
-    "target": "./destination",
-  },
-  {
-    "class": "inline.text",
-    "value": " in it.",
-  },
-]
-`;
-
 exports[`parser.inline.link > basic 1`] = `
 [
   {
