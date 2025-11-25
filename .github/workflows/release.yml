@@ -60,6 +60,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+      - name: Check actor permission
+        id: check_perm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PERM=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}/permission" \
+            | python -c "import sys, json; print(json.load(sys.stdin).get('permission',''))")
+          echo "permission=$PERM" >> $GITHUB_OUTPUT
+
       - name: Determine version bump
         id: bump-type
         run: |
@@ -102,6 +113,7 @@ jobs:
           git push origin HEAD --tags
 
       - name: Create GitHub Release
+        if: steps.check_perm.outputs.permission == 'write' || steps.check_perm.outputs.permission == 'admin'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
