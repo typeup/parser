@@ -1,6 +1,6 @@
 {
 	"name": "@typeup/parser",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Parser for TypeUp documents with a simple event-based API.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
