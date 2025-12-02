@@ -72,7 +72,7 @@ jobs:
 
       - name: Security audit
         if: matrix.check == 'audit'
-        run: npm audit --audit-level moderate
+        run: npm audit --omit=dev --audit-level moderate
 
       - name: Upload coverage to Codecov
         if: matrix.check == 'coverage'

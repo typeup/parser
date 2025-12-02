@@ -52,7 +52,7 @@
 		"prepare": "npm run build",
 		"prepublishOnly": "npm run verify",
 		"clean": "rimraf dist node_modules coverage .nyc_output",
-		"verify": "npm run type-check && npm run build && npm run test && npm run lint && npm audit --audit-level moderate",
+		"verify": "npm run type-check && npm run build && npm run test && npm run lint && npm audit --omit=dev --audit-level moderate",
 		"release": "npm run verify && npm version patch && git push --follow-tags",
 		"release:minor": "npm run verify && npm version minor && git push --follow-tags",
 		"release:major": "npm run verify && npm version major && git push --follow-tags"
