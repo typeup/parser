@@ -1,4 +1,3 @@
-import { mendly } from "mendly"
 import { parser } from "."
 
 const simpleDocument = `
@@ -15,7 +14,7 @@ it should. And here is %a small bit of code% and another one with a bit of formu
 
 describe("parser.parse", () => {
 	it("basic", () => {
-		const result = parser.parse(mendly.Reader.String.create(simpleDocument), new mendly.Error.Handler.Console())
+		const result = parser.parse(simpleDocument)
 		if (!result)
 			expect(result)
 		else
