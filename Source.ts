@@ -1,4 +1,5 @@
 import { mendly } from "mendly"
+import { CommentStripper } from "./CommentStripper"
 
 export class Source extends mendly.Reader.Buffered implements mendly.Error.Handler {
 	constructor(reader: mendly.Reader, private errorHandler: mendly.Error.Handler) {
@@ -29,6 +30,14 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 	}
 	until(endMark: string | string[]): Source {
 		return new Source(mendly.Reader.Until.create(this, endMark), this.errorHandler)
+	}
+	static from(
+		content: string | mendly.Reader | undefined,
+		handler: mendly.Error.Handler | undefined
+	): Source | undefined {
+		if (typeof content == "string")
+			content = mendly.Reader.String.create(content)
+		return content && new Source(new CommentStripper(content), handler ?? new mendly.Error.Handler.Console())
 	}
 }
 export namespace Source {}
