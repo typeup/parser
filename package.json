@@ -73,6 +73,6 @@
 	},
 	"dependencies": {
 		"@typeup/dom": "^1.0.5",
-		"mendly": "^2.2.0"
+		"mendly": "^2.3.0"
 	}
 }
