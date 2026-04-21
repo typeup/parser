@@ -49,9 +49,8 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Check package contents
-        run: |
-          npm pack --dry-run
+      - name: Validate package archive
+        run: npm pack --dry-run
 
       - name: Get package info
         id: package
