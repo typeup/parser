@@ -95,7 +95,7 @@ jobs:
     name: Update Documentation
     runs-on: ubuntu-latest
     needs: publish
-    if: success() && needs.publish.outputs.prerelease != 'true'
+    if: success() && !contains(needs.publish.outputs.version, '-')
 
     steps:
       - name: Checkout
