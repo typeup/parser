@@ -20,6 +20,9 @@ jobs:
   publish:
     name: Publish to NPM
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.package.outputs.version }}
+      prerelease: ${{ steps.package.outputs.prerelease }}
     permissions:
       contents: read
       id-token: write # Required for trusted publishing
@@ -46,11 +49,8 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Check package contents
-        run: |
-          npm pack --dry-run
-          echo "Package contents:"
-          tar -tzf $(npm pack --dry-run 2>/dev/null | tail -1) | head -20
+      - name: Validate package archive
+        run: npm pack --dry-run
 
       - name: Get package info
         id: package

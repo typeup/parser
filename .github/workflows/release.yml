@@ -107,7 +107,7 @@ jobs:
 
       - name: Commit and tag
         run: |
-          git add package.json CHANGELOG.md
+          git add package.json package-lock.json CHANGELOG.md
           git commit -m "chore(release): bump version to ${{ steps.version.outputs.new_version }}"
           git tag ${{ steps.version.outputs.tag }}
           git push origin HEAD --tags
@@ -128,7 +128,7 @@ jobs:
             ## Installation
 
             ```bash
-            npm install @typeup/dom@${{ steps.version.outputs.new_version }}
+            npm install @typeup/parser@${{ steps.version.outputs.new_version }}
             ```
           draft: false
           prerelease: ${{ contains(steps.version.outputs.new_version, '-') }}
