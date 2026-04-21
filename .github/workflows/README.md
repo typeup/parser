@@ -26,7 +26,7 @@ This repository uses a comprehensive set of GitHub Actions workflows for continu
 5. `dependency-review` - Reviews new dependencies
 6. `status-check` - Aggregates all job results
 
-### 🚀 Release Pipeline (`bump.yml` → `publish.yml`)
+### 🚀 Release Pipeline (`release.yml` → `publish.yml`)
 
 **Triggers:**
 
@@ -93,7 +93,6 @@ This repository uses a comprehensive set of GitHub Actions workflows for continu
 Add these secrets in GitHub repository settings:
 
 ```
-NPM_TOKEN         - NPM publishing token
 CODECOV_TOKEN     - Codecov upload token (optional)
 ```
 
@@ -101,13 +100,13 @@ CODECOV_TOKEN     - Codecov upload token (optional)
 
 1. **Environments**: Create `npm-publish` environment for publish protection
 2. **Branch Protection**: Enable required status checks on main/master
-3. **Actions Permissions**: Allow GitHub Actions to create and approve pull requests
+3. **Actions Permissions**: Allow GitHub Actions to create releases and push tags
 
 ### NPM Setup
 
 1. Create NPM account and organization
-2. Generate automation token with publish permissions
-3. Add token as `NPM_TOKEN` secret
+2. Configure npm trusted publishing for this repository
+3. Grant publish permission through npm package settings
 
 ## Usage Examples
 
@@ -115,7 +114,7 @@ CODECOV_TOKEN     - Codecov upload token (optional)
 
 ```bash
 # Trigger manual release with specific version type
-gh workflow run bump.yml -f version-type=minor
+gh workflow run release.yml -f version-type=minor
 ```
 
 ### Emergency Publish
