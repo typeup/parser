@@ -1,15 +1,14 @@
 name: "Publish"
 
 on:
-  workflow_run:
-    workflows:
-      - "Bump Alpha"
-      - "Bump Minor"
-    types:
-      - completed
+  push:
+    branches:
+      - "master"
+      - "master-2"
+      - "master-beta"
 
 concurrency:
-  group: publish-${{ github.event.workflow_run.head_branch }}
+  group: publish-${{ github.ref_name }}
   cancel-in-progress: false
 
 permissions:
@@ -19,14 +18,13 @@ permissions:
 jobs:
   publish:
     name: "Publish"
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -34,4 +32,4 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
       - run: npm run build
-      - run: npm publish --tag "${{ github.event.workflow_run.name == 'Bump Minor' && 'latest' || (github.event.workflow_run.name == 'Bump Alpha' && 'alpha' || 'beta') }}" --access public --provenance
+      - run: npm publish --tag "${{ github.ref_name == 'master-2' && 'alpha' || (github.ref_name == 'master-beta' && 'beta' || 'latest') }}" --access public --provenance

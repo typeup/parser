@@ -28,7 +28,7 @@
 		}
 	},
 	"git": {
-		"tagName": "v${version}"
+		"tagName": "release-${version}"
 	},
 	"github": {
 		"release": true
