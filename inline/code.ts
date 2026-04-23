@@ -6,8 +6,7 @@ function parse(source: Source): dom.Inline[] | undefined {
 	let result: dom.Inline[] | undefined
 	if (source.readIf("%")) {
 		result = [new dom.Inline.Code(source.till("%").readAll() || "", source.mark())]
-		if (!source.readIf("%"))
-			source.raise('Expected "%" as end of inline code.')
+		if (!source.readIf("%")) source.raise('Expected "%" as end of inline code.')
 	}
 	return result
 }

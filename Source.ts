@@ -2,7 +2,10 @@ import { mendly } from "mendly"
 import { CommentStripper } from "./CommentStripper"
 
 export class Source extends mendly.Reader.Buffered implements mendly.Error.Handler {
-	constructor(reader: mendly.Reader, private errorHandler: mendly.Error.Handler) {
+	constructor(
+		reader: mendly.Reader,
+		private errorHandler: mendly.Error.Handler
+	) {
 		super(reader)
 	}
 	raise(message: mendly.Error): void
@@ -14,10 +17,8 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 		region?: mendly.Error.Region
 	): void {
 		if (!(message instanceof mendly.Error)) {
-			if (!level)
-				level = "critical"
-			if (!region)
-				region = this.region
+			if (!level) level = "critical"
+			if (!region) region = this.region
 			message = new mendly.Error(message as string, level, type, region)
 		}
 		this.errorHandler.raise(message as mendly.Error)
@@ -35,8 +36,7 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 		content: string | mendly.Reader | undefined,
 		handler: mendly.Error.Handler | undefined
 	): Source | undefined {
-		if (typeof content == "string")
-			content = mendly.Reader.String.create(content)
+		if (typeof content == "string") content = mendly.Reader.String.create(content)
 		return content && new Source(new CommentStripper(content), handler ?? new mendly.Error.Handler.Console())
 	}
 }

@@ -10,11 +10,11 @@ function parse(source: Source): dom.Block[] | undefined {
 		const content: dom.Block[] = []
 		let next: dom.Block | undefined
 		while (
-			result &&
-			result.length > 0 &&
-			!(result[0] instanceof dom.Block.Section) &&
-			!(result[0] instanceof dom.Block.Chapter) &&
-			(next = result.shift())
+			result
+			&& result.length > 0
+			&& !(result[0] instanceof dom.Block.Section)
+			&& !(result[0] instanceof dom.Block.Chapter)
+			&& (next = result.shift())
 		)
 			content.push(next)
 		result = [new dom.Block.Section(content, region), ...(result || [])]
