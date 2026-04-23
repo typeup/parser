@@ -21,7 +21,7 @@ function parse(source: Source): dom.Block[] | undefined {
 				next && next.length > 0 && next[0] instanceof dom.Block.Paragraph
 					? [new dom.Block.Paragraph(content.concat((next[0] as dom.Block.Paragraph).content)) as dom.Block].concat(
 							next.slice(1)
-					  )
+						)
 					: [new dom.Block.Paragraph(content) as dom.Block].concat(next)
 		}
 	}

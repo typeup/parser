@@ -8,8 +8,7 @@ function parse(source: Source): dom.Block[] | undefined {
 		source.read()
 		result = [new dom.Block.EmptyLine(source.mark())]
 		const next = block.parse(source)
-		if (next && next.length > 0)
-			result = result.concat(next)
+		if (next && next.length > 0) result = result.concat(next)
 	}
 	return result
 }

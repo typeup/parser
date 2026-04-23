@@ -6,8 +6,7 @@ import { block } from "./block"
 function parse(source: Source): dom.Block[] | undefined {
 	const rows: dom.Block.Table.Row[] = []
 	let row: dom.Block.Table.Row | undefined
-	while (source.peekIs("| ") && (row = parseRow(true, source.till("\n"))) && source.readIf("\n"))
-		rows.push(row)
+	while (source.peekIs("| ") && (row = parseRow(true, source.till("\n"))) && source.readIf("\n")) rows.push(row)
 	let alignments: ("" | "left" | "center" | "right")[] | undefined
 	if (source.peekIs(["|-", "|:-"]) && source.readIf("|")) {
 		const alignmentString = source.until("\n").readAll()
@@ -17,16 +16,14 @@ function parse(source: Source): dom.Block[] | undefined {
 				.split("|")
 				.map(a => (a.startsWith(":") ? (a.endsWith(":") ? "center" : "left") : a.endsWith(":") ? "right" : ""))
 	}
-	while (source.peekIs("| ") && (row = parseRow(false, source.till("\n"))) && source.readIf("\n"))
-		rows.push(row)
+	while (source.peekIs("| ") && (row = parseRow(false, source.till("\n"))) && source.readIf("\n")) rows.push(row)
 	let result: dom.Block[] | undefined
 	if (rows.length > 0) {
 		const region = source.mark()
 		result = block.parse(source) || []
 		if (result.length > 0 && result[0] instanceof dom.Block.Paragraph)
 			result[0] = new dom.Block.Table(alignments || [], rows, (result[0] as dom.Block.Paragraph).content, region)
-		else
-			result.unshift(new dom.Block.Table(alignments || [], rows, [], region))
+		else result.unshift(new dom.Block.Table(alignments || [], rows, [], region))
 	}
 	return result
 }
@@ -35,10 +32,8 @@ function parseRow(header: boolean, source: Source): dom.Block.Table.Row | undefi
 	const cells: dom.Block.Table.Cell[] = []
 	if (source.readIf("| ")) {
 		let cell: dom.Block.Table.Cell | undefined
-		while ((cell = parseCell(header, source)))
-			cells.push(cell)
-		if (cells.length > 0)
-			result = new dom.Block.Table.Row(cells, source.mark())
+		while ((cell = parseCell(header, source))) cells.push(cell)
+		if (cells.length > 0) result = new dom.Block.Table.Row(cells, source.mark())
 	}
 	return result
 }

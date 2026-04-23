@@ -13,10 +13,9 @@ function parse(source: Source): dom.Inline[] | undefined {
 					? inline.parse(source.till("]")) || []
 					: [new dom.Inline.Text(target, source.mark()) as dom.Inline],
 				source.mark()
-			),
+			)
 		]
-		if (!source.readIf("]"))
-			source.raise('Expected "]" as end of link.')
+		if (!source.readIf("]")) source.raise('Expected "]" as end of link.')
 	}
 	return result
 }

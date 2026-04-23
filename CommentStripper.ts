@@ -40,14 +40,11 @@ export class CommentStripper extends mendly.Reader {
 				this.disableUntil = !this.disableUntil ? peeked : this.disableUntil == peeked ? undefined : this.disableUntil
 				break
 			case "//":
-				if (!this.disableUntil && this.last != ":")
-					while (this.backend.peek() != "\n")
-						this.backend.read()
+				if (!this.disableUntil && this.last != ":") while (this.backend.peek() != "\n") this.backend.read()
 				break
 			case "/*":
 				if (!this.disableUntil) {
-					while (this.backend.peek(2) != "*/")
-						this.backend.read()
+					while (this.backend.peek(2) != "*/") this.backend.read()
 					this.backend.read(2)
 				}
 				break
