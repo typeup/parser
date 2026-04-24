@@ -25,7 +25,7 @@
 		"removeComments": true,
 		"preserveConstEnums": true,
 		"forceConsistentCasingInFileNames": true,
-		"types": ["vitest/globals", "node"]
+		"types": ["vitest/globals"]
 	},
 	"include": ["**/*.ts"],
 	"exclude": ["coverage", "dist", "node_modules"],
