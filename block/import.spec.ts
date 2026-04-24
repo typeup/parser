@@ -1,4 +1,4 @@
-import { mendly } from "mendly"
+import { mendly } from "mendly/node"
 import { Source } from "../Source"
 import { block } from "."
 
