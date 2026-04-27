@@ -1,4 +1,4 @@
-import { parser } from "."
+import { parser } from "./index"
 
 const simpleDocument = `
 class = paper

@@ -3,9 +3,6 @@
 exports[`parser.block.table > complex 1`] = `
 [
   {
-    "class": "block.emptyLine",
-  },
-  {
     "alignments": [
       "",
       "",
@@ -17,10 +14,6 @@ exports[`parser.block.table > complex 1`] = `
         "class": "inline.text",
         "value": "A selection of relevant properties required for creating new merchants. (r - required, o - optional)
 ",
-      },
-      {
-        "class": "inline.text",
-        "value": "		",
       },
     ],
     "rows": [

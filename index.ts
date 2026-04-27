@@ -1,7 +1,7 @@
 import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
-import { block as internalBlock } from "./block"
-import { inline as internalInline } from "./inline"
+import { block as _block } from "./block"
+import { inline as _inline } from "./inline"
 import { Source } from "./Source"
 
 export namespace parser {
@@ -12,7 +12,7 @@ export namespace parser {
 		handler?: mendly.Error.Handler
 	): dom.Document | undefined {
 		const source = Source.from(reader, handler)
-		return source && new dom.Document(internalBlock.parseAll(source) || [], source.mark())
+		return source && new dom.Document(_block.parseAll(source) || [], source.mark())
 	}
 	export function open(path: string | undefined, handler?: mendly.Error.Handler): dom.Document | undefined {
 		const locator = mendly.Uri.parse(path)
@@ -24,7 +24,7 @@ export namespace parser {
 			handler?: mendly.Error.Handler
 		): dom.Inline[] | undefined {
 			const source = Source.from(reader, handler)
-			return source && internalInline.parse(source)
+			return source && _inline.parse(source)
 		}
 	}
 	export namespace block {
@@ -33,7 +33,7 @@ export namespace parser {
 			handler?: mendly.Error.Handler
 		): dom.Block[] | undefined {
 			const source = Source.from(reader, handler)
-			return source && internalBlock.parseAll(source)
+			return source && _block.parseAll(source)
 		}
 	}
 }

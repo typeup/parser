@@ -1,12 +1,9 @@
 import { mendly } from "mendly"
-import { Source } from "../Source"
-import { block } from "."
+import { parser } from "../index"
 
 describe("parser.block.assignment", () => {
 	it("simple", () => {
-		const result =
-			block.parse(new Source(mendly.Reader.String.create("variable = value\n"), new mendly.Error.Handler.Console()))
-			|| []
+		const result = parser.block.parse("variable = value\n", new mendly.Error.Handler.Console()) || []
 		expect(result.map(node => node.toObject())).toMatchSnapshot()
 	})
 })
