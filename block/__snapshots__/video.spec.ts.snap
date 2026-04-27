@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser.block.video > !video https://example.com/video.mp4
+Video caption. - with-video 1`] = `
+[
+  {
+    "class": "block.video",
+    "classes": [],
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Video caption.",
+      },
+    ],
+    "source": "https://example.com/video.mp4",
+  },
+]
+`;
+
+exports[`parser.block.video > !video https://example.com/video.mp4 classA classB
+Video caption. - with-classes 1`] = `
+[
+  {
+    "class": "block.video",
+    "classes": [
+      "classA",
+      "classB",
+    ],
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Video caption.",
+      },
+    ],
+    "source": "https://example.com/video.mp4",
+  },
+]
+`;

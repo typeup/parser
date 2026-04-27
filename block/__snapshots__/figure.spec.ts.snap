@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser.block.figure > !figure 
+Empty caption below. - empty-uri 1`] = `
+[
+  {
+    "class": "block.figure",
+    "classes": [],
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Empty caption below.",
+      },
+    ],
+    "source": "/",
+  },
+]
+`;
+
+exports[`parser.block.figure > !figure https://example.com/image.png
+Figure caption. - with-image 1`] = `
+[
+  {
+    "class": "block.figure",
+    "classes": [],
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Figure caption.",
+      },
+    ],
+    "source": "https://example.com/image.png",
+  },
+]
+`;
+
+exports[`parser.block.figure > !figure https://example.com/image.png class1 class2
+Figure caption. - with-classes 1`] = `
+[
+  {
+    "class": "block.figure",
+    "classes": [
+      "class1",
+      "class2",
+    ],
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Figure caption.",
+      },
+    ],
+    "source": "https://example.com/image.png",
+  },
+]
+`;
