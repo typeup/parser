@@ -8,14 +8,13 @@ export default defineConfig({
 			reporter: ["text", "json", "html"],
 			enabled: true,
 			cleanOnRerun: true,
-			thresholds: { statements: 60, branches: 45, functions: 50, lines: 60 }
+			thresholds: { statements: 70, branches: 60, functions: 80, lines: 80 }
 		},
 		globals: true,
 		include: ["**/*.spec.[tj]s"],
 		testTimeout: 20000,
 		isolate: false,
 		exclude: ["node_modules", "dist"],
-		// Required for dependencies that expose ESM directory imports.
-		server: { deps: { inline: ["@typeup/dom", "mendly"] } }
+		server: { deps: { inline: ["mendly", "@typeup/dom"] } }
 	}
 })

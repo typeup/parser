@@ -4,6 +4,7 @@
 	"description": "Parser for TypeUp documents with a simple event-based API.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
+	"private": false,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/typeup/parser.git"
@@ -12,7 +13,6 @@
 		"url": "https://github.com/typeup/parser/issues"
 	},
 	"homepage": "https://github.com/typeup/parser",
-	"private": false,
 	"type": "module",
 	"types": "./dist/types/index.d.ts",
 	"exports": {
