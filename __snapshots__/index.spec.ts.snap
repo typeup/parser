@@ -1,0 +1,1355 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser > parse('simple document') 1`] = `
+Document {
+  "class": "document",
+  "content": [
+    Assignment {
+      "class": "block.assignment",
+      "name": "class",
+      "region": Region {
+        "content": "class = paper
+",
+        "end": Location {
+          "column": 1,
+          "line": 3,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+        "resource": Uri {
+          "authority": Authority {
+            "endpoint": Endpoint {
+              "host": [],
+              "port": undefined,
+            },
+            "user": User {
+              "name": undefined,
+              "password": undefined,
+            },
+          },
+          "fragment": undefined,
+          "path": [],
+          "query": {},
+          "scheme": [],
+        },
+        "start": Location {
+          "column": 1,
+          "line": 2,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+      },
+      "value": "paper",
+    },
+    Assignment {
+      "class": "block.assignment",
+      "name": "title",
+      "region": Region {
+        "content": "title = Document Title
+",
+        "end": Location {
+          "column": 1,
+          "line": 4,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+        "resource": Uri {
+          "authority": Authority {
+            "endpoint": Endpoint {
+              "host": [],
+              "port": undefined,
+            },
+            "user": User {
+              "name": undefined,
+              "password": undefined,
+            },
+          },
+          "fragment": undefined,
+          "path": [],
+          "query": {},
+          "scheme": [],
+        },
+        "start": Location {
+          "column": 1,
+          "line": 3,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+      },
+      "value": "Document Title",
+    },
+    Assignment {
+      "class": "block.assignment",
+      "name": "date",
+      "region": Region {
+        "content": "date = 2015-11-10
+",
+        "end": Location {
+          "column": 1,
+          "line": 5,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+        "resource": Uri {
+          "authority": Authority {
+            "endpoint": Endpoint {
+              "host": [],
+              "port": undefined,
+            },
+            "user": User {
+              "name": undefined,
+              "password": undefined,
+            },
+          },
+          "fragment": undefined,
+          "path": [],
+          "query": {},
+          "scheme": [],
+        },
+        "start": Location {
+          "column": 1,
+          "line": 4,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+      },
+      "value": "2015-11-10",
+    },
+    Assignment {
+      "class": "block.assignment",
+      "name": "author",
+      "region": Region {
+        "content": "author = John Doe
+",
+        "end": Location {
+          "column": 1,
+          "line": 6,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+        "resource": Uri {
+          "authority": Authority {
+            "endpoint": Endpoint {
+              "host": [],
+              "port": undefined,
+            },
+            "user": User {
+              "name": undefined,
+              "password": undefined,
+            },
+          },
+          "fragment": undefined,
+          "path": [],
+          "query": {},
+          "scheme": [],
+        },
+        "start": Location {
+          "column": 1,
+          "line": 5,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+      },
+      "value": "John Doe",
+    },
+    Heading {
+      "class": "block.heading",
+      "content": [
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "Header Level 1",
+            "end": Location {
+              "column": 17,
+              "line": 7,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 3,
+              "line": 7,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": "Header Level 1",
+        },
+      ],
+      "level": 1,
+      "region": Region {
+        "content": "# Header Level 1",
+        "end": Location {
+          "column": 17,
+          "line": 7,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+        "resource": Uri {
+          "authority": Authority {
+            "endpoint": Endpoint {
+              "host": [],
+              "port": undefined,
+            },
+            "user": User {
+              "name": undefined,
+              "password": undefined,
+            },
+          },
+          "fragment": undefined,
+          "path": [],
+          "query": {},
+          "scheme": [],
+        },
+        "start": Location {
+          "column": 1,
+          "line": 7,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+      },
+    },
+    Paragraph {
+      "class": "block.paragraph",
+      "content": [
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "Paragraph A ",
+            "end": Location {
+              "column": 13,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 1,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": "Paragraph A ",
+        },
+        Emphasize {
+          "class": "inline.emphasize",
+          "content": [
+            Text {
+              "class": "inline.text",
+              "region": Region {
+                "content": "emphasized text",
+                "end": Location {
+                  "column": 29,
+                  "line": 8,
+                  "resource": Uri {
+                    "authority": Authority {
+                      "endpoint": Endpoint {
+                        "host": [],
+                        "port": undefined,
+                      },
+                      "user": User {
+                        "name": undefined,
+                        "password": undefined,
+                      },
+                    },
+                    "fragment": undefined,
+                    "path": [],
+                    "query": {},
+                    "scheme": [],
+                  },
+                },
+                "resource": Uri {
+                  "authority": Authority {
+                    "endpoint": Endpoint {
+                      "host": [],
+                      "port": undefined,
+                    },
+                    "user": User {
+                      "name": undefined,
+                      "password": undefined,
+                    },
+                  },
+                  "fragment": undefined,
+                  "path": [],
+                  "query": {},
+                  "scheme": [],
+                },
+                "start": Location {
+                  "column": 14,
+                  "line": 8,
+                  "resource": Uri {
+                    "authority": Authority {
+                      "endpoint": Endpoint {
+                        "host": [],
+                        "port": undefined,
+                      },
+                      "user": User {
+                        "name": undefined,
+                        "password": undefined,
+                      },
+                    },
+                    "fragment": undefined,
+                    "path": [],
+                    "query": {},
+                    "scheme": [],
+                  },
+                },
+              },
+              "value": "emphasized text",
+            },
+          ],
+          "region": Region {
+            "content": "_emphasized text",
+            "end": Location {
+              "column": 29,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 13,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+        },
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "_ a lot of ",
+            "end": Location {
+              "column": 40,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 29,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": " a lot of ",
+        },
+        Link {
+          "class": "inline.link",
+          "content": [
+            Text {
+              "class": "inline.text",
+              "region": Region {
+                "content": "other nonsense",
+                "end": Location {
+                  "column": 74,
+                  "line": 8,
+                  "resource": Uri {
+                    "authority": Authority {
+                      "endpoint": Endpoint {
+                        "host": [],
+                        "port": undefined,
+                      },
+                      "user": User {
+                        "name": undefined,
+                        "password": undefined,
+                      },
+                    },
+                    "fragment": undefined,
+                    "path": [],
+                    "query": {},
+                    "scheme": [],
+                  },
+                },
+                "resource": Uri {
+                  "authority": Authority {
+                    "endpoint": Endpoint {
+                      "host": [],
+                      "port": undefined,
+                    },
+                    "user": User {
+                      "name": undefined,
+                      "password": undefined,
+                    },
+                  },
+                  "fragment": undefined,
+                  "path": [],
+                  "query": {},
+                  "scheme": [],
+                },
+                "start": Location {
+                  "column": 60,
+                  "line": 8,
+                  "resource": Uri {
+                    "authority": Authority {
+                      "endpoint": Endpoint {
+                        "host": [],
+                        "port": undefined,
+                      },
+                      "user": User {
+                        "name": undefined,
+                        "password": undefined,
+                      },
+                    },
+                    "fragment": undefined,
+                    "path": [],
+                    "query": {},
+                    "scheme": [],
+                  },
+                },
+              },
+              "value": "other nonsense",
+            },
+          ],
+          "region": Region {
+            "content": "[http://example.com other nonsense",
+            "end": Location {
+              "column": 74,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 40,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "target": "http://example.com",
+        },
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "]. This paragraph spans
+",
+            "end": Location {
+              "column": 1,
+              "line": 9,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 74,
+              "line": 8,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": ". This paragraph spans
+",
+        },
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "several lines and so
+",
+            "end": Location {
+              "column": 1,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 1,
+              "line": 9,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": "several lines and so
+",
+        },
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "it should. And here is ",
+            "end": Location {
+              "column": 24,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 1,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": "it should. And here is ",
+        },
+        Code {
+          "class": "inline.code",
+          "region": Region {
+            "content": "%a small bit of code",
+            "end": Location {
+              "column": 44,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 24,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": "a small bit of code",
+        },
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "% and another one with a bit of formula: ",
+            "end": Location {
+              "column": 85,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 44,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": " and another one with a bit of formula: ",
+        },
+        Math {
+          "class": "inline.math",
+          "region": Region {
+            "content": "$x^2 + y^2 = z^2",
+            "end": Location {
+              "column": 101,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 85,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": "x^2 + y^2 = z^2",
+        },
+        Text {
+          "class": "inline.text",
+          "region": Region {
+            "content": "$.
+",
+            "end": Location {
+              "column": 1,
+              "line": 11,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+            "resource": Uri {
+              "authority": Authority {
+                "endpoint": Endpoint {
+                  "host": [],
+                  "port": undefined,
+                },
+                "user": User {
+                  "name": undefined,
+                  "password": undefined,
+                },
+              },
+              "fragment": undefined,
+              "path": [],
+              "query": {},
+              "scheme": [],
+            },
+            "start": Location {
+              "column": 101,
+              "line": 10,
+              "resource": Uri {
+                "authority": Authority {
+                  "endpoint": Endpoint {
+                    "host": [],
+                    "port": undefined,
+                  },
+                  "user": User {
+                    "name": undefined,
+                    "password": undefined,
+                  },
+                },
+                "fragment": undefined,
+                "path": [],
+                "query": {},
+                "scheme": [],
+              },
+            },
+          },
+          "value": ".
+",
+        },
+      ],
+      "region": Region {
+        "content": "Paragraph A _emphasized text_ a lot of [http://example.com other nonsense]. This paragraph spans
+several lines and so
+it should. And here is %a small bit of code% and another one with a bit of formula: $x^2 + y^2 = z^2$.
+",
+        "end": Location {
+          "column": 1,
+          "line": 11,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+        "resource": Uri {
+          "authority": Authority {
+            "endpoint": Endpoint {
+              "host": [],
+              "port": undefined,
+            },
+            "user": User {
+              "name": undefined,
+              "password": undefined,
+            },
+          },
+          "fragment": undefined,
+          "path": [],
+          "query": {},
+          "scheme": [],
+        },
+        "start": Location {
+          "column": 1,
+          "line": 8,
+          "resource": Uri {
+            "authority": Authority {
+              "endpoint": Endpoint {
+                "host": [],
+                "port": undefined,
+              },
+              "user": User {
+                "name": undefined,
+                "password": undefined,
+              },
+            },
+            "fragment": undefined,
+            "path": [],
+            "query": {},
+            "scheme": [],
+          },
+        },
+      },
+    },
+  ],
+  "region": Region {
+    "content": "
+Paragraph A _emphasized text_ a lot of [http://example.com other nonsense]. This paragraph spans
+several lines and so
+it should. And here is %a small bit of code% and another one with a bit of formula: $x^2 + y^2 = z^2$.
+ ",
+    "end": Location {
+      "column": 2,
+      "line": 11,
+      "resource": Uri {
+        "authority": Authority {
+          "endpoint": Endpoint {
+            "host": [],
+            "port": undefined,
+          },
+          "user": User {
+            "name": undefined,
+            "password": undefined,
+          },
+        },
+        "fragment": undefined,
+        "path": [],
+        "query": {},
+        "scheme": [],
+      },
+    },
+    "resource": Uri {
+      "authority": Authority {
+        "endpoint": Endpoint {
+          "host": [],
+          "port": undefined,
+        },
+        "user": User {
+          "name": undefined,
+          "password": undefined,
+        },
+      },
+      "fragment": undefined,
+      "path": [],
+      "query": {},
+      "scheme": [],
+    },
+    "start": Location {
+      "column": 17,
+      "line": 7,
+      "resource": Uri {
+        "authority": Authority {
+          "endpoint": Endpoint {
+            "host": [],
+            "port": undefined,
+          },
+          "user": User {
+            "name": undefined,
+            "password": undefined,
+          },
+        },
+        "fragment": undefined,
+        "path": [],
+        "query": {},
+        "scheme": [],
+      },
+    },
+  },
+}
+`;
