@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser.inline.link > basic 1`] = `
+exports[`parser.inline.link > 'basic' 1`] = `
 [
   {
     "class": "inline.link",
@@ -15,7 +15,25 @@ exports[`parser.inline.link > basic 1`] = `
 ]
 `;
 
-exports[`parser.inline.link > in text 1`] = `
+exports[`parser.inline.link > 'flag without display text' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "./destination",
+      },
+    ],
+    "flags": [
+      "external",
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'in text' 1`] = `
 [
   {
     "class": "inline.text",
@@ -34,6 +52,43 @@ exports[`parser.inline.link > in text 1`] = `
   {
     "class": "inline.text",
     "value": " in it.",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'multiple flags' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "flags": [
+      "external",
+      "new-tab",
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'single flag' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "flags": [
+      "external",
+    ],
+    "target": "./destination",
   },
 ]
 `;

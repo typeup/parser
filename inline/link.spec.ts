@@ -2,14 +2,11 @@ import { mendly } from "mendly"
 import { parser } from "../index"
 
 describe("parser.inline.link", () => {
-	it("basic", () => {
-		const result = parser.inline.parse("[./destination link]", new mendly.Error.Handler.Console()) || []
-		expect(result.map(node => node.toObject())).toMatchSnapshot()
-	})
-	it("in text", () => {
-		const result =
-			parser.inline.parse("This is a text with an [./destination link] in it.", new mendly.Error.Handler.Console())
-			|| []
-		expect(result.map(node => node.toObject())).toMatchSnapshot()
-	})
+	it.each([
+		{ name: "basic", input: "[./destination link]" },
+		{ name: "in text", input: "This is a text with an [./destination link] in it." },
+		{ name: "single flag", input: "[./destination|external link]" },
+		{ name: "multiple flags", input: "[./destination|external|new-tab link]" },
+		{ name: "flag without display text", input: "[./destination|external]" }
+	])("$name", ({ input }) => expect(parser.inline.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
 })

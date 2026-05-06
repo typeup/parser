@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser.inline.quote > 'basic' 1`] = `
+[
+  {
+    "class": "inline.quote",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "quoted text",
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.inline.quote > 'in text' 1`] = `
+[
+  {
+    "class": "inline.text",
+    "value": "This is a text with a ",
+  },
+  {
+    "class": "inline.quote",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "quoted part",
+      },
+    ],
+  },
+  {
+    "class": "inline.text",
+    "value": " in it.",
+  },
+]
+`;
+
+exports[`parser.inline.quote > 'with inline content' 1`] = `
+[
+  {
+    "class": "inline.quote",
+    "content": [
+      {
+        "class": "inline.emphasize",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "emphasized",
+          },
+        ],
+      },
+      {
+        "class": "inline.text",
+        "value": " quote",
+      },
+    ],
+  },
+]
+`;

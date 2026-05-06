@@ -5,13 +5,14 @@ import { inline } from "./inline"
 function parse(source: Source): dom.Inline[] | undefined {
 	let result: dom.Inline[] | undefined
 	if (source.readIf("[")) {
-		const target = source.till([" ", "]"]).readAll() || ""
+		const [target = "", ...flags] = (source.till([" ", "]"]).readAll() || "").split("|")
 		result = [
 			new dom.Inline.Link(
 				target,
 				source.readIf(" ")
 					? inline.parse(source.till("]")) || []
 					: [new dom.Inline.Text(target, source.mark()) as dom.Inline],
+				flags,
 				source.mark()
 			)
 		]
