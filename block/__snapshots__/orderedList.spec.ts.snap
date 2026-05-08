@@ -1,0 +1,196 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser.block.orderedList > 'empty line between items' 1`] = `
+[
+  {
+    "class": "block.list.ordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "First
+",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Second",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.orderedList > 'followed by paragraph' 1`] = `
+[
+  {
+    "class": "block.list.ordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Item
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    "class": "block.paragraph",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "A paragraph",
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.orderedList > 'multiple items' 1`] = `
+[
+  {
+    "class": "block.list.ordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "First
+",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Second
+",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Third",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.orderedList > 'nested list' 1`] = `
+[
+  {
+    "class": "block.list.ordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Outer
+",
+              },
+            ],
+          },
+          {
+            "class": "block.list.ordered",
+            "content": [
+              {
+                "class": "block.list.item",
+                "content": [
+                  {
+                    "class": "block.paragraph",
+                    "content": [
+                      {
+                        "class": "inline.text",
+                        "value": "Inner",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.orderedList > 'single item' 1`] = `
+[
+  {
+    "class": "block.list.ordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "First item",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
