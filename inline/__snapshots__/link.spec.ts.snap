@@ -15,6 +15,92 @@ exports[`parser.inline.link > 'basic' 1`] = `
 ]
 `;
 
+exports[`parser.inline.link > 'basic' 2`] = `[]`;
+
+exports[`parser.inline.link > 'empty flag' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'empty flag' 2`] = `
+[
+  {
+    "description": "Empty link flag.",
+    "level": "recoverable",
+    "region": "/ (/ @ Ln 1, Col 16 - / @ Ln 1, Col 16) ",
+    "type": "link-flag",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'empty then valid flag without display…' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "./destination",
+      },
+    ],
+    "flags": [
+      "blank",
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'empty then valid flag without display…' 2`] = `
+[
+  {
+    "description": "Empty link flag.",
+    "level": "recoverable",
+    "region": "/ (/ @ Ln 1, Col 16 - / @ Ln 1, Col 16) ",
+    "type": "link-flag",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'empty then valid flag' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "flags": [
+      "blank",
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'empty then valid flag' 2`] = `
+[
+  {
+    "description": "Empty link flag.",
+    "level": "recoverable",
+    "region": "/ (/ @ Ln 1, Col 16 - / @ Ln 1, Col 16) ",
+    "type": "link-flag",
+  },
+]
+`;
+
 exports[`parser.inline.link > 'flag without display text' 1`] = `
 [
   {
@@ -26,12 +112,14 @@ exports[`parser.inline.link > 'flag without display text' 1`] = `
       },
     ],
     "flags": [
-      "external",
+      "blank",
     ],
     "target": "./destination",
   },
 ]
 `;
+
+exports[`parser.inline.link > 'flag without display text' 2`] = `[]`;
 
 exports[`parser.inline.link > 'in text' 1`] = `
 [
@@ -56,6 +144,8 @@ exports[`parser.inline.link > 'in text' 1`] = `
 ]
 `;
 
+exports[`parser.inline.link > 'in text' 2`] = `[]`;
+
 exports[`parser.inline.link > 'multiple flags' 1`] = `
 [
   {
@@ -67,13 +157,15 @@ exports[`parser.inline.link > 'multiple flags' 1`] = `
       },
     ],
     "flags": [
-      "external",
-      "new-tab",
+      "blank",
+      "download",
     ],
     "target": "./destination",
   },
 ]
 `;
+
+exports[`parser.inline.link > 'multiple flags' 2`] = `[]`;
 
 exports[`parser.inline.link > 'single flag' 1`] = `
 [
@@ -86,9 +178,66 @@ exports[`parser.inline.link > 'single flag' 1`] = `
       },
     ],
     "flags": [
-      "external",
+      "blank",
     ],
     "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'single flag' 2`] = `[]`;
+
+exports[`parser.inline.link > 'unknown and known flag' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "flags": [
+      "blank",
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'unknown and known flag' 2`] = `
+[
+  {
+    "description": "Unknown link flag: unknown",
+    "level": "recoverable",
+    "region": "/ (/ @ Ln 1, Col 16 - / @ Ln 1, Col 23) unknown",
+    "type": "link-flag",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'unknown flag' 1`] = `
+[
+  {
+    "class": "inline.link",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "link",
+      },
+    ],
+    "target": "./destination",
+  },
+]
+`;
+
+exports[`parser.inline.link > 'unknown flag' 2`] = `
+[
+  {
+    "description": "Unknown link flag: unknown",
+    "level": "recoverable",
+    "region": "/ (/ @ Ln 1, Col 16 - / @ Ln 1, Col 23) unknown",
+    "type": "link-flag",
   },
 ]
 `;
