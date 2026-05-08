@@ -1,6 +1,48 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser.block.definitionList > simple 1`] = `
+exports[`parser.block.definitionList > 'followed by heading' 1`] = `
+[
+  {
+    "class": "block.list.definition",
+    "content": [
+      {
+        "class": "block.list.definition.term",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Term 1
+",
+          },
+        ],
+        "data": [
+          {
+            "class": "block.list.definition.data",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Description 1
+",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    "class": "block.heading",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Heading",
+      },
+    ],
+    "level": 1,
+  },
+]
+`;
+
+exports[`parser.block.definitionList > 'simple' 1`] = `
 [
   {
     "class": "block.list.definition",

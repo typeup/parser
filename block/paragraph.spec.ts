@@ -9,12 +9,10 @@ describe("parser.block.paragraph", () => {
 })
 
 describe("parser.block.definitionList", () => {
-	it("simple", () => {
-		const result =
-			parser.block.parse(
-				"Term 1\n: Description 1\n: Description A\nTerm 2\n: Description 2\n",
-				new mendly.Error.Handler.Console()
-			) || []
-		expect(result.map(node => node.toObject())).toMatchSnapshot()
-	})
+	it.each([
+		{ label: "simple", input: "Term 1\n: Description 1\n: Description A\nTerm 2\n: Description 2\n" },
+		{ label: "followed by heading", input: "Term 1\n: Description 1\n# Heading\n" }
+	])("$label", ({ input }) =>
+		expect(parser.block.parse(input, new mendly.Error.Handler.Console())?.map(node => node.toObject())).toMatchSnapshot()
+	)
 })

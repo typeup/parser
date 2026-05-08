@@ -11,7 +11,7 @@ function parse(source: Source): dom.Block[] | undefined {
 		const definition = definitionData.parse(source)
 		if (definition) {
 			const definitions = new dom.Block.List.Definition([new dom.Block.List.Definition.Term(content, definition)])
-			const next = parse(source)
+			const next = block.parse(source)
 			if (next && next.length > 0 && next[0] instanceof dom.Block.List.Definition)
 				definitions.content.push(...(next.shift() as dom.Block.List.Definition).content)
 			result = [definitions, ...(next || [])]
