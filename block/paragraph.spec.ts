@@ -13,6 +13,7 @@ describe("parser.block.definitionList", () => {
 		{ label: "simple", input: "Term 1\n: Description 1\n: Description A\nTerm 2\n: Description 2\n" },
 		{ label: "followed by heading", input: "Term 1\n: Description 1\n# Heading\n" }
 	])("$label", ({ input }) =>
-		expect(parser.block.parse(input, new mendly.Error.Handler.Console())?.map(node => node.toObject())).toMatchSnapshot()
-	)
+		expect(
+			parser.block.parse(input, new mendly.Error.Handler.Console())?.map(node => node.toObject())
+		).toMatchSnapshot())
 })

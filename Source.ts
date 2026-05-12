@@ -32,6 +32,12 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 	until(endMark: string | string[]): Source {
 		return new Source(mendly.Reader.Until.create(this, endMark), this.errorHandler)
 	}
+	readIfAny(...patterns: string[]): string | undefined {
+		for (const pattern of patterns) {
+			if (this.readIf(pattern)) return pattern
+		}
+		return undefined
+	}
 	static from(
 		content: string | mendly.Reader | undefined,
 		handler: mendly.Error.Handler | undefined
