@@ -6,7 +6,8 @@ function parse(source: Source): dom.Block[] | undefined {
 	let result: dom.Block[] | undefined
 	let i = 1
 	let peeked: string | undefined
-	while ((peeked = source.peek(i)) && peeked.charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-/i)) i++
+	while ((peeked = source.peek(i)) && peeked.charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-|\./i)) i++
+	if ((peeked = source.peek(i + 1)) && peeked.slice(-2) == "[]") i += 2
 	if ((peeked = source.peek(i + 2)) && peeked.slice(-3) == " = ") {
 		const name = source.read(i - 1)
 		if (!name) source.raise("Missing name of variable to assign to.", "recoverable")

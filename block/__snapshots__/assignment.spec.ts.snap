@@ -1,6 +1,46 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser.block.assignment > simple 1`] = `
+exports[`parser.block.assignment > 'array style variable' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "keywords[]",
+    "value": "test",
+  },
+]
+`;
+
+exports[`parser.block.assignment > 'empty value' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "variable",
+    "value": "",
+  },
+]
+`;
+
+exports[`parser.block.assignment > 'hyphen and underscore in name' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "variable-name_2",
+    "value": "value",
+  },
+]
+`;
+
+exports[`parser.block.assignment > 'nested variable' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "design.icon",
+    "value": "url",
+  },
+]
+`;
+
+exports[`parser.block.assignment > 'simple' 1`] = `
 [
   {
     "class": "block.assignment",
