@@ -10,6 +10,19 @@ exports[`CommentStripper > 'block comments stripped outside blocks' 1`] = `
 ]
 `;
 
+exports[`CommentStripper > 'block comments stripped outside blocks' 2`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.assignment",
+      "name": "value",
+      "value": "before  after",
+    },
+  ],
+}
+`;
+
 exports[`CommentStripper > 'comments are preserved in code blocks' 1`] = `
 [
   {
@@ -22,6 +35,21 @@ exports[`CommentStripper > 'comments are preserved in code blocks' 1`] = `
 ]
 `;
 
+exports[`CommentStripper > 'comments are preserved in code blocks' 2`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.code",
+      "content": [],
+      "language": "ts",
+      "value": "const x = 1 // keep
+/* keep */",
+    },
+  ],
+}
+`;
+
 exports[`CommentStripper > 'comments are preserved in diagram blo…' 1`] = `
 [
   {
@@ -32,6 +60,21 @@ exports[`CommentStripper > 'comments are preserved in diagram blo…' 1`] = `
 ",
   },
 ]
+`;
+
+exports[`CommentStripper > 'comments are preserved in diagram blo…' 2`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.diagram",
+      "content": [],
+      "value": "a // keep
+/* keep */
+",
+    },
+  ],
+}
 `;
 
 exports[`CommentStripper > 'http link is not treated as comment' 1`] = `
@@ -62,4 +105,75 @@ exports[`CommentStripper > 'line comments stripped outside blocks' 1`] = `
     "value": "kept ",
   },
 ]
+`;
+
+exports[`CommentStripper > 'line comments stripped outside blocks' 2`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.assignment",
+      "name": "value",
+      "value": "kept ",
+    },
+  ],
+}
+`;
+
+exports[`CommentStripper > 'protocol text is preserved' 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.paragraph",
+      "content": [
+        {
+          "class": "inline.text",
+          "value": "http://example.com
+",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`CommentStripper > keeps comment markers in fenced blocks via parser.parse 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.code",
+      "content": [],
+      "language": "",
+      "value": "a /* keep */",
+    },
+    {
+      "class": "block.diagram",
+      "content": [],
+      "value": "a // keep
+",
+    },
+  ],
+}
+`;
+
+exports[`CommentStripper > parses comment-heavy documents through the public API 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.assignment",
+      "name": "value",
+      "value": "kept ",
+    },
+    {
+      "class": "block.code",
+      "content": [],
+      "language": "ts",
+      "value": "const x = 1 // keep
+/* keep */",
+    },
+  ],
+}
 `;

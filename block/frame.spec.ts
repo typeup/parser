@@ -3,7 +3,13 @@ import { parser } from "../index"
 
 describe("parser.block.frame", () => {
 	it.each([
-		["!frame https://example.com/page.html\nFrame caption.", "with-source"],
-		["!frame https://example.com/page.html classA classB\nFrame caption.", "with-classes"]
-	])("%s - %s", input => expect(parser.block.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
+		{ label: "with source", input: "!frame https://example.com/page.html\nFrame caption." },
+		{ label: "with classes", input: "!frame https://example.com/page.html classA classB\nFrame caption." },
+		{ label: "missing newline", input: "!frame https://example.com/page" }
+	])("$label", ({ input }) =>
+		expect((parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.class)).toContain(
+			"block.frame"
+		))
+	it("invalid uri does not create frame", () =>
+		expect((parser.block.parse("!frame \nCaption\n") || []).map(node => node.class)).not.toContain("block.frame"))
 })

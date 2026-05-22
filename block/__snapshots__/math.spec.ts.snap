@@ -1,5 +1,20 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`parser.block.math > math block with caption 1`] = `
+[
+  {
+    "class": "block.math",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Math Caption.",
+      },
+    ],
+    "value": "a^2 + b^2 = c^2",
+  },
+]
+`;
+
 exports[`parser.block.math > simple 1`] = `
 [
   {

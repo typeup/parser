@@ -1,5 +1,20 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`parser.block.diagram > diagram block with caption 1`] = `
+[
+  {
+    "class": "block.diagram",
+    "content": [
+      {
+        "class": "inline.text",
+        "value": "Figure Caption.",
+      },
+    ],
+    "value": "<svg></svg>",
+  },
+]
+`;
+
 exports[`parser.block.diagram > simple 1`] = `
 [
   {

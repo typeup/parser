@@ -30,12 +30,32 @@ exports[`parser.block.assignment > 'hyphen and underscore in name' 1`] = `
 ]
 `;
 
+exports[`parser.block.assignment > 'missing name' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": " ",
+    "value": "alue",
+  },
+]
+`;
+
 exports[`parser.block.assignment > 'nested variable' 1`] = `
 [
   {
     "class": "block.assignment",
     "name": "design.icon",
     "value": "url",
+  },
+]
+`;
+
+exports[`parser.block.assignment > 'plain assignment' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "variable",
+    "value": "value",
   },
 ]
 `;

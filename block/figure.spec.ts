@@ -1,9 +1,14 @@
+import { mendly } from "mendly"
 import { parser } from "../index"
 
 describe("parser.block.figure", () => {
 	it.each([
-		["!figure https://example.com/image.png\nFigure caption.", "with-image"],
-		["!figure https://example.com/image.png class1 class2\nFigure caption.", "with-classes"],
-		["!figure \nEmpty caption below.", "empty-uri"]
-	])("%s - %s", input => expect(parser.block.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
+		{ label: "with image", input: "!figure https://example.com/image.png\nFigure caption." },
+		{ label: "with classes", input: "!figure https://example.com/image.png class1 class2\nFigure caption." },
+		{ label: "empty uri", input: "!figure \nEmpty caption below." },
+		{ label: "missing newline", input: "!figure https://example.com/img.png" }
+	])("$label", ({ input }) =>
+		expect(
+			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+		).toMatchSnapshot())
 })

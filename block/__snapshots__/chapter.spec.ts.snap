@@ -65,6 +65,15 @@ exports[`parser.block.chapter > 'chapter with heading and paragraph' 1`] = `
 ]
 `;
 
+exports[`parser.block.chapter > 'empty chapter marker' 1`] = `
+[
+  {
+    "class": "block.chapter",
+    "content": [],
+  },
+]
+`;
+
 exports[`parser.block.chapter > 'single chapter with paragraph' 1`] = `
 [
   {

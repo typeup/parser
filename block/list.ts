@@ -2,21 +2,25 @@ import { dom } from "@typeup/dom"
 import { Source } from "../Source"
 import { block } from "./block"
 
-function normalizeItems(items: dom.Block.List.Item[]): dom.Block.List.Item[] {
-	const unwrapped = items.map(item => {
-		return item.content[0] && item.content.length === 1 && item.content[0].class === "block.paragraph"
-			? new dom.Block.List.Item((item.content[0] as any).content, item.region)
-			: item
-	})
-	return unwrapped.some(item => item.content.some(content => !content.class.startsWith("inline.")))
-		? unwrapped.map(item =>
-				item.content.every(content => content.class.startsWith("inline."))
-					? new dom.Block.List.Item([new dom.Block.Paragraph(item.content as dom.Inline[])], item.region)
-					: item
-			)
-		: unwrapped
+function makeDense(content: dom.Block.List.Item.Content[]): dom.Inline[] {
+	return content.map(c => (c.is("block.paragraph") ? c.content : c.is("inline") ? c : undefined)).filter((c): c is dom.Inline => c != undefined)
 }
-
+function makeSparse(content: dom.Block.List.Item.Content[]): dom.Block[] {
+	return content.length > 0 && content.every(c => c.is("inline"))
+		? [new dom.Block.Paragraph(content as dom.Inline[])]
+		: content
+}
+function normalize(items: dom.Block.List.Item[]): dom.Block.List.Item[] {
+	const mapping = items.some(
+		item =>
+			item.content.length > 0
+			&& item.content.every(content => content.is("inline"))
+			|| (item.content.length == 1 && item.content[0]?.is("block.paragraph"))
+	)
+		? makeDense
+		: makeSparse
+		return items.map(item => new dom.Block.List.Item(mapping(item.content), item.region))
+}
 function parse(source: Source): dom.Block[] | undefined {
 	let peeked = ""
 	let p: string | undefined
@@ -37,9 +41,9 @@ function parse(source: Source): dom.Block[] | undefined {
 		if (next && next.length > 0 && next[index] instanceof ListClass) {
 			items = items.concat((next[index] as dom.Block.List.Ordered | dom.Block.List.Unordered).content)
 			while (index-- > 0) next.shift()
-			next[0] = new ListClass(normalizeItems(items))
+			next[0] = new ListClass(normalize(items))
 			result = next
-		} else result = [new ListClass(normalizeItems(items)) as dom.Block, ...(next || [])]
+		} else result = [new ListClass(normalize(items)) as dom.Block, ...(next || [])]
 	}
 	return result
 }

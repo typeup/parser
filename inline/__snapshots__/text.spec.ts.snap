@@ -8,3 +8,12 @@ exports[`parser.inline.text > basic 1`] = `
   },
 ]
 `;
+
+exports[`parser.inline.text > plain text 1`] = `
+[
+  {
+    "class": "inline.text",
+    "value": "A simple text.",
+  },
+]
+`;

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Source > accepts reader input 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.assignment",
+      "name": "name",
+      "value": "value",
+    },
+  ],
+}
+`;

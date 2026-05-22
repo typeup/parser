@@ -21,4 +21,10 @@ it should. And here is %a small bit of code% and another one with a bit of formu
 		}
 	] satisfies { name: string; document: string }[])("parse($name)", ({ document }) =>
 		expect(parser.parse(document)).toMatchSnapshot())
+	it("parser.open handles invalid and valid locations", () => {
+		expect(parser.open("???")).toBeUndefined()
+		expect(() => parser.open("/home/smika/versioned/typeup/parser/example/subdocument.tup")).not.toThrow()
+		expect(() => parser.open("file:///home/smika/versioned/typeup/parser/example/subdocument.tup")).not.toThrow()
+		expect(parser.open("/home/smika/versioned/typeup/parser/example/does-not-exist.tup")).toBeUndefined()
+	})
 })

@@ -14,4 +14,24 @@ describe("parser.inline.link", () => {
 		{ name: "empty then valid flag", input: "[./destination||blank link]" },
 		{ name: "empty then valid flag without display text", input: "[./destination||blank]" }
 	])("$name", ({ input }) => expect(parser.inline.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
+
+	it("target without display text parses", () => {
+		expect((parser.inline.parse("[target]") || []).map(node => node.class)).toContain("inline.link")
+	})
+
+	it("target with empty display segment parses", () => {
+		expect((parser.inline.parse("[target ]") || []).map(node => node.class)).toContain("inline.link")
+	})
+
+	it("unclosed link still yields inline link", () => {
+		expect(
+			(parser.inline.parse("[target", new mendly.Error.Handler.Console()) || []).map(node => node.class)
+		).toContain("inline.link")
+	})
+
+	it("empty target still yields inline link", () => {
+		expect((parser.inline.parse("[]", new mendly.Error.Handler.Console()) || []).map(node => node.class)).toContain(
+			"inline.link"
+		)
+	})
 })

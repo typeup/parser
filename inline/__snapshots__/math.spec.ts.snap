@@ -1,5 +1,40 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`parser.inline.math > 'basic' 1`] = `
+[
+  {
+    "class": "inline.math",
+    "value": "a^2 + b^2 = c^2",
+  },
+]
+`;
+
+exports[`parser.inline.math > 'in text' 1`] = `
+[
+  {
+    "class": "inline.text",
+    "value": "This is a text with an ",
+  },
+  {
+    "class": "inline.math",
+    "value": "a^2 + b^2 = c^2",
+  },
+  {
+    "class": "inline.text",
+    "value": " in it.",
+  },
+]
+`;
+
+exports[`parser.inline.math > 'standalone inline math' 1`] = `
+[
+  {
+    "class": "inline.math",
+    "value": "a^2 + b^2 = c^2",
+  },
+]
+`;
+
 exports[`parser.inline.math > basic 1`] = `
 [
   {

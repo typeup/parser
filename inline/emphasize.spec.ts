@@ -2,13 +2,18 @@ import { mendly } from "mendly"
 import { parser } from "../index"
 
 describe("parser.inline.emphasize", () => {
-	it("basic", () => {
-		const result = parser.inline.parse("_emphasize_", new mendly.Error.Handler.Console()) || []
-		expect(result.map(node => node.toObject())).toMatchSnapshot()
-	})
-	it("in text", () => {
-		const result =
-			parser.inline.parse("This is a text with an _emphasize_ in it.", new mendly.Error.Handler.Console()) || []
-		expect(result.map(node => node.toObject())).toMatchSnapshot()
-	})
+	it.each([
+		{ label: "standalone emphasize", input: "_emphasize_" },
+		{ label: "in text", input: "This is a text with an _emphasize_ in it." }
+	])("$label", ({ input }) =>
+		expect(
+			(parser.inline.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+		).toMatchSnapshot())
+	it.each([
+		{ label: "unclosed delimiter", input: "_unclosed" },
+		{ label: "empty delimiters", input: "__" }
+	])("$label", ({ input }) =>
+		expect((parser.inline.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.class)).toContain(
+			"inline.emphasize"
+		))
 })

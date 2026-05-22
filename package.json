@@ -51,7 +51,7 @@
 		"vitest": "4.1.7"
 	},
 	"dependencies": {
-		"@typeup/dom": "^1.0.11-beta.9",
+		"@typeup/dom": "^1.0.11-beta.12",
 		"mendly": "^3.1.1-beta.17"
 	}
 }
