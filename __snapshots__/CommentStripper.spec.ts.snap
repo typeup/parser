@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CommentStripper > 'block comments stripped outside blocks' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "value",
+    "value": "before  after",
+  },
+]
+`;
+
+exports[`CommentStripper > 'comments are preserved in code blocks' 1`] = `
+[
+  {
+    "class": "block.code",
+    "content": [],
+    "language": "ts",
+    "value": "const x = 1 // keep
+/* keep */",
+  },
+]
+`;
+
+exports[`CommentStripper > 'comments are preserved in diagram blo…' 1`] = `
+[
+  {
+    "class": "block.diagram",
+    "content": [],
+    "value": "a // keep
+/* keep */
+",
+  },
+]
+`;
+
+exports[`CommentStripper > 'http link is not treated as comment' 1`] = `
+[
+  {
+    "class": "block.paragraph",
+    "content": [
+      {
+        "class": "inline.link",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Example",
+          },
+        ],
+        "target": "http://example.com",
+      },
+    ],
+  },
+]
+`;
+
+exports[`CommentStripper > 'line comments stripped outside blocks' 1`] = `
+[
+  {
+    "class": "block.assignment",
+    "name": "value",
+    "value": "kept ",
+  },
+]
+`;

@@ -12,28 +12,16 @@ export namespace parser {
 		handler?: mendly.Error.Handler
 	): dom.Document | undefined {
 		const source = Source.from(reader, handler)
-		return source && new dom.Document(_block.parseAll(source) || [], source.mark())
+		return source && new dom.Document(block.parse(source) || [], source.mark())
 	}
 	export function open(path: string | undefined, handler?: mendly.Error.Handler): dom.Document | undefined {
 		const locator = mendly.Uri.parse(path)
 		return locator && parse(mendly.Reader.open(locator), handler)
 	}
 	export namespace inline {
-		export function parse(
-			reader: mendly.Reader | string | undefined,
-			handler?: mendly.Error.Handler
-		): dom.Inline[] | undefined {
-			const source = Source.from(reader, handler)
-			return source && _inline.parse(source)
-		}
+		export const parse = _inline.parse
 	}
 	export namespace block {
-		export function parse(
-			reader: mendly.Reader | string | undefined,
-			handler?: mendly.Error.Handler
-		): dom.Block[] | undefined {
-			const source = Source.from(reader, handler)
-			return source && _block.parseAll(source)
-		}
+		export const parse = _block.parse
 	}
 }

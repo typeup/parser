@@ -44,11 +44,11 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.14",
-		"@vitest/coverage-v8": "4.1.5",
+		"@vitest/coverage-v8": "4.1.7",
 		"rimraf": "6.1.3",
 		"typescript": "6.0.3",
-		"vite": "8.0.10",
-		"vitest": "4.1.5"
+		"vite": "8.0.14",
+		"vitest": "4.1.7"
 	},
 	"dependencies": {
 		"@typeup/dom": "^1.0.11-beta.9",

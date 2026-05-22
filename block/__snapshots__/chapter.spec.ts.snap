@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser.block.chapter > 'chapter followed by another chapter' 1`] = `
+[
+  {
+    "class": "block.chapter",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Chapter one
+",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    "class": "block.chapter",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Chapter two
+",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.chapter > 'chapter with heading and paragraph' 1`] = `
+[
+  {
+    "class": "block.chapter",
+    "content": [
+      {
+        "class": "block.heading",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Header",
+          },
+        ],
+        "level": 1,
+      },
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Body text
+",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.chapter > 'single chapter with paragraph' 1`] = `
+[
+  {
+    "class": "block.chapter",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Chapter paragraph
+",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;

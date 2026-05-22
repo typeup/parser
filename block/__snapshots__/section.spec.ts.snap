@@ -1,0 +1,97 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser.block.section > 'section followed by chapter' 1`] = `
+[
+  {
+    "class": "block.section",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Section body
+",
+          },
+        ],
+      },
+      {
+        "class": "block.emptyLine",
+      },
+    ],
+  },
+  {
+    "class": "block.chapter",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Chapter body
+",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.section > 'section followed by section' 1`] = `
+[
+  {
+    "class": "block.section",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "One
+",
+          },
+        ],
+      },
+      {
+        "class": "block.emptyLine",
+      },
+    ],
+  },
+  {
+    "class": "block.section",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Two
+",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.section > 'single section with paragraph' 1`] = `
+[
+  {
+    "class": "block.section",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Section paragraph
+",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;

@@ -1,6 +1,9 @@
 import { parser } from "./index"
 
 describe("parser", () => {
+	it("returns undefined for parser.parse(undefined)", () => expect(parser.parse(undefined)).toBeUndefined())
+	it.each([{ label: "parser.open(undefined)", path: undefined }] as const)("returns undefined for $label", ({ path }) =>
+		expect(parser.open(path)).toBeUndefined())
 	it.each([
 		{
 			name: "simple document",
