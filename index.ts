@@ -2,7 +2,7 @@ import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
 import { block as _block } from "./block"
 import { inline as _inline } from "./inline"
-import { Source } from "./Source"
+import { Source as _Source } from "./Source"
 
 export namespace parser {
 	export function parse(reader: string | undefined, handler?: mendly.Error.Handler): dom.Document | undefined
@@ -22,6 +22,7 @@ export namespace parser {
 		const locator = typeof path === "string" ? mendly.Uri.parse(path) : path
 		return locator && parse(Source.from(mendly.Reader.open(locator), handler))
 	}
+	export import Source = _Source
 	export namespace inline {
 		export const parse = _inline.parse
 	}
