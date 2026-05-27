@@ -1,15 +1,14 @@
 import { mendly } from "mendly"
 import { CommentStripper } from "./CommentStripper"
+import { Importer } from "./Importer"
 
 export class Source extends mendly.Reader.Buffered implements mendly.Error.Handler {
-	protected constructor(
+	private constructor(
 		reader: mendly.Reader,
-		protected errorHandler: mendly.Error.Handler = new mendly.Error.Handler.Console()
+		private errorHandler: mendly.Error.Handler = new mendly.Error.Handler.Console(),
+		private importer?: Importer
 	) {
 		super(reader)
-	}
-	protected create(reader: mendly.Reader): Source {
-		return new Source(reader, this.errorHandler)
 	}
 	raise(message: mendly.Error): void
 	raise(message: string, level?: mendly.Error.Level, type?: string, region?: mendly.Error.Region): void
@@ -27,13 +26,13 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 		this.errorHandler.raise(message as mendly.Error)
 	}
 	requirePrefix(prefix: string | string[]): Source {
-		return this.create(new mendly.Reader.Prefix(this, prefix))
+		return new Source(new mendly.Reader.Prefix(this, prefix), this.errorHandler, this.importer)
 	}
 	till(endMark: string | string[]): Source {
-		return this.create(mendly.Reader.Till.create(this, endMark))
+		return new Source(mendly.Reader.Till.create(this, endMark), this.errorHandler, this.importer)
 	}
 	until(endMark: string | string[]): Source {
-		return this.create(mendly.Reader.Until.create(this, endMark))
+		return new Source(mendly.Reader.Until.create(this, endMark), this.errorHandler, this.importer)
 	}
 	readIfAny(...patterns: string[]): string | undefined {
 		let result: string | undefined
@@ -44,19 +43,26 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 			}
 		return result
 	}
-	open(uri: mendly.Uri): Source | string | undefined {
-		const location = uri.resolve(this.region.resource)
-		const reader = mendly.Reader.open(location)
-		return Source.from(reader, this.errorHandler)
+	open(locator: mendly.Uri): Source | string | undefined {
+		return (
+			this.importer
+			?? ((locator: mendly.Uri): Source | string | undefined => {
+				const location = locator.resolve(this.region.resource)
+				const reader = mendly.Reader.open(location)
+				return Source.from(reader, this.errorHandler, this.importer)
+			})
+		)(locator)
 	}
 	static from(
 		content: string | mendly.Reader | undefined,
-		handler: mendly.Error.Handler | undefined
+		handler?: mendly.Error.Handler | undefined,
+		importer?: Importer
 	): Source | undefined {
 		return content
 			? new this(
 					new CommentStripper(typeof content == "string" ? mendly.Reader.String.create(content) : content),
-					handler
+					handler,
+					importer
 				)
 			: undefined
 	}

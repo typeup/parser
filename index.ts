@@ -1,28 +1,38 @@
 import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
 import { block as _block } from "./block"
+import { Importer as _Importer } from "./Importer"
 import { inline as _inline } from "./inline"
-import { Source as _Source } from "./Source"
+import { Source } from "./Source"
 
 export namespace parser {
-	export function parse(reader: string | undefined, handler?: mendly.Error.Handler): dom.Document | undefined
-	export function parse(reader: mendly.Reader | undefined, handler?: mendly.Error.Handler): dom.Document | undefined
-	export function parse(source: Source | undefined): dom.Document | undefined
 	export function parse(
-		reader: mendly.Reader | Source | string | undefined,
-		handler?: mendly.Error.Handler
+		reader: string | undefined,
+		handler?: mendly.Error.Handler,
+		importer?: Importer
+	): dom.Document | undefined
+	export function parse(
+		reader: mendly.Reader | undefined,
+		handler?: mendly.Error.Handler,
+		importer?: Importer
+	): dom.Document | undefined
+	export function parse(
+		reader: mendly.Reader | string | undefined,
+		handler?: mendly.Error.Handler,
+		importer?: Importer
 	): dom.Document | undefined {
-		const source = reader instanceof Source ? reader : Source.from(reader, handler)
+		const source = reader instanceof Source ? reader : Source.from(reader, handler, importer)
 		return source && new dom.Document(block.parse(source) || [], source.mark())
 	}
 	export function open(
 		path: mendly.Uri | string | undefined,
-		handler?: mendly.Error.Handler
+		handler?: mendly.Error.Handler,
+		importer?: Importer
 	): dom.Document | undefined {
 		const locator = typeof path == "string" ? mendly.Uri.parse(path) : path
-		return locator && parse(Source.from(mendly.Reader.open(locator), handler))
+		return locator && parse(Source.from(mendly.Reader.open(locator), handler, importer), handler, importer)
 	}
-	export import Source = _Source
+	export type Importer = _Importer
 	export namespace inline {
 		export const parse = _inline.parse
 	}
