@@ -33,10 +33,18 @@ export class Source extends mendly.Reader.Buffered implements mendly.Error.Handl
 		return new Source(mendly.Reader.Until.create(this, endMark), this.errorHandler)
 	}
 	readIfAny(...patterns: string[]): string | undefined {
-		for (const pattern of patterns) {
-			if (this.readIf(pattern)) return pattern
-		}
-		return undefined
+		let result: string | undefined
+		for (const pattern of patterns)
+			if (this.readIf(pattern)) {
+				result = pattern
+				break
+			}
+		return result
+	}
+	open(uri: mendly.Uri): Source | string | undefined {
+		const location = uri.resolve(this.region.resource)
+		const reader = mendly.Reader.open(location)
+		return Source.from(reader, this.errorHandler)
 	}
 	static from(
 		content: string | mendly.Reader | undefined,

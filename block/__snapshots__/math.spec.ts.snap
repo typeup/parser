@@ -14,18 +14,3 @@ exports[`parser.block.math > math block with caption 1`] = `
   },
 ]
 `;
-
-exports[`parser.block.math > simple 1`] = `
-[
-  {
-    "class": "block.math",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Math Caption.",
-      },
-    ],
-    "value": "a^2 + b^2 = c^2",
-  },
-]
-`;

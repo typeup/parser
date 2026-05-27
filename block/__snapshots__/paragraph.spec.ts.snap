@@ -100,70 +100,6 @@ exports[`parser.block.definitionList > 'leading whitespace in data' 1`] = `
 ]
 `;
 
-exports[`parser.block.definitionList > 'simple' 1`] = `
-[
-  {
-    "class": "block.list.definition",
-    "content": [
-      {
-        "class": "block.list.definition.term",
-        "content": [
-          {
-            "class": "inline.text",
-            "value": "Term 1
-",
-          },
-        ],
-        "data": [
-          {
-            "class": "block.list.definition.data",
-            "content": [
-              {
-                "class": "inline.text",
-                "value": "Description 1
-",
-              },
-            ],
-          },
-          {
-            "class": "block.list.definition.data",
-            "content": [
-              {
-                "class": "inline.text",
-                "value": "Description A
-",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        "class": "block.list.definition.term",
-        "content": [
-          {
-            "class": "inline.text",
-            "value": "Term 2
-",
-          },
-        ],
-        "data": [
-          {
-            "class": "block.list.definition.data",
-            "content": [
-              {
-                "class": "inline.text",
-                "value": "Description 2
-",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-]
-`;
-
 exports[`parser.block.definitionList > 'two terms and multiple definitions' 1`] = `
 [
   {
@@ -248,20 +184,6 @@ exports[`parser.block.definitionList > 'whitespace-only data' 1`] = `
             "content": [],
           },
         ],
-      },
-    ],
-  },
-]
-`;
-
-exports[`parser.block.paragraph > simple 1`] = `
-[
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "This is a single paragraph.",
       },
     ],
   },

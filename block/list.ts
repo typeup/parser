@@ -3,7 +3,7 @@ import { Source } from "../Source"
 import { block } from "./block"
 
 function makeDense(content: dom.Block.List.Item.Content[]): dom.Inline[] {
-	return content.map(c => (c.is("block.paragraph") ? c.content : c.is("inline") ? c : undefined)).filter((c): c is dom.Inline => c != undefined)
+	return content.flatMap(c => (c.is("block.paragraph") ? c.content : c.is("inline") ? [c] : []))
 }
 function makeSparse(content: dom.Block.List.Item.Content[]): dom.Block[] {
 	return content.length > 0 && content.every(c => c.is("inline"))
@@ -13,37 +13,23 @@ function makeSparse(content: dom.Block.List.Item.Content[]): dom.Block[] {
 function normalize(items: dom.Block.List.Item[]): dom.Block.List.Item[] {
 	const mapping = items.some(
 		item =>
-			item.content.length > 0
-			&& item.content.every(content => content.is("inline"))
+			(item.content.length > 0 && item.content.every(content => content.is("inline")))
 			|| (item.content.length == 1 && item.content[0]?.is("block.paragraph"))
 	)
 		? makeDense
 		: makeSparse
-		return items.map(item => new dom.Block.List.Item(mapping(item.content), item.region))
+	return items.map(item => new dom.Block.List.Item(mapping(item.content), item.region))
 }
 function parse(source: Source): dom.Block[] | undefined {
-	let peeked = ""
-	let p: string | undefined
-	while ((p = source.peekIs(peeked + "\t"))) peeked = p
 	let result: dom.Block[] | undefined
-	const symbol = source.readIfAny(peeked + "1.", peeked + "-")
+	const symbol = source.readIfAny("1. ", "- ")
 	if (symbol) {
-		while ((source.peek() || "").match(/\s/)) source.read()
-		const next = block.parse(source)
-		let items: dom.Block.List.Item[] = [
-			new dom.Block.List.Item(block.parseAll(source.requirePrefix("\t")) || [], source.mark())
-		]
-		let index = 0
-		while (next && next.length > 0 && next[index] instanceof dom.Block.EmptyLine) index++
-		const ListClass: typeof dom.Block.List.Ordered | typeof dom.Block.List.Unordered = symbol.endsWith("-")
-			? dom.Block.List.Unordered
-			: dom.Block.List.Ordered
-		if (next && next.length > 0 && next[index] instanceof ListClass) {
-			items = items.concat((next[index] as dom.Block.List.Ordered | dom.Block.List.Unordered).content)
-			while (index-- > 0) next.shift()
-			next[0] = new ListClass(normalize(items))
-			result = next
-		} else result = [new ListClass(normalize(items)) as dom.Block, ...(next || [])]
+		const items: dom.Block.List.Item[] = []
+		do {
+			items.push(new dom.Block.List.Item(block.parseAll(source.requirePrefix("\t")) || [], source.mark()))
+			while (source.readIf("\n"));
+		} while (source.readIf(symbol))
+		result = [new (symbol == "1. " ? dom.Block.List.Ordered : dom.Block.List.Unordered)(normalize(items))]
 	}
 	return result
 }

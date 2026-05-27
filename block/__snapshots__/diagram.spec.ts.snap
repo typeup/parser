@@ -14,18 +14,3 @@ exports[`parser.block.diagram > diagram block with caption 1`] = `
   },
 ]
 `;
-
-exports[`parser.block.diagram > simple 1`] = `
-[
-  {
-    "class": "block.diagram",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Figure Caption.",
-      },
-    ],
-    "value": "<svg></svg>",
-  },
-]
-`;

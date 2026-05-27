@@ -7,16 +7,20 @@ import { Source } from "./Source"
 export namespace parser {
 	export function parse(reader: string | undefined, handler?: mendly.Error.Handler): dom.Document | undefined
 	export function parse(reader: mendly.Reader | undefined, handler?: mendly.Error.Handler): dom.Document | undefined
+	export function parse(source: Source | undefined): dom.Document | undefined
 	export function parse(
-		reader: mendly.Reader | string | undefined,
+		reader: mendly.Reader | Source | string | undefined,
 		handler?: mendly.Error.Handler
 	): dom.Document | undefined {
-		const source = Source.from(reader, handler)
+		const source = reader instanceof Source ? reader : Source.from(reader, handler)
 		return source && new dom.Document(block.parse(source) || [], source.mark())
 	}
-	export function open(path: string | undefined, handler?: mendly.Error.Handler): dom.Document | undefined {
-		const locator = mendly.Uri.parse(path)
-		return locator && parse(mendly.Reader.open(locator), handler)
+	export function open(
+		path: mendly.Uri | string | undefined,
+		handler?: mendly.Error.Handler
+	): dom.Document | undefined {
+		const locator = typeof path === "string" ? mendly.Uri.parse(path) : path
+		return locator && parse(Source.from(mendly.Reader.open(locator), handler))
 	}
 	export namespace inline {
 		export const parse = _inline.parse

@@ -15,9 +15,8 @@ function parse(source: Source): dom.Block[] | undefined {
 			const importPath = mendly.Uri.parse(path + ".tup")
 			if (!importPath) source.raise("Unable to parse imported path.", "recoverable")
 			else {
-				const currentPath = region.resource
-				const location = importPath.resolve(currentPath)
-				const content = file.open(location, source)
+				const s = source.open(importPath)
+				const content = s instanceof Source ? file.parse(s) : s
 				if (!content) source.raise("Unable to open imported file.", "recoverable")
 				else result = [new dom.Block.Import(mendly.Uri.parse(path) || mendly.Uri.empty, content, region)]
 			}

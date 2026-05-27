@@ -59,13 +59,3 @@ exports[`parser.block.assignment > 'plain assignment' 1`] = `
   },
 ]
 `;
-
-exports[`parser.block.assignment > 'simple' 1`] = `
-[
-  {
-    "class": "block.assignment",
-    "name": "variable",
-    "value": "value",
-  },
-]
-`;

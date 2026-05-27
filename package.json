@@ -43,7 +43,7 @@
 		"verify": "npm run build && npm run test && npm run lint && npm audit --omit=dev"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.14",
+		"@biomejs/biome": "2.4.16",
 		"@vitest/coverage-v8": "4.1.7",
 		"rimraf": "6.1.3",
 		"typescript": "6.0.3",
@@ -51,7 +51,7 @@
 		"vitest": "4.1.7"
 	},
 	"dependencies": {
-		"@typeup/dom": "^1.0.11-beta.12",
-		"mendly": "^3.1.1-beta.17"
+		"@typeup/dom": "^1.0.11-beta.14",
+		"mendly": "^3.1.1-beta.18"
 	}
 }

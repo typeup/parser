@@ -1,66 +1,105 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser.block.list > 'ordered' > 'empty line between items' 1`] = `
+exports[`parser.block.list > 'dash followed by space parses as para…' 1`] = `
 [
   {
-    "class": "block.list.ordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
     "class": "block.paragraph",
     "content": [
       {
         "class": "inline.text",
-        "value": "First
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.ordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Second",
+        "value": "-",
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'ordered' > 'followed by paragraph' 1`] = `
+exports[`parser.block.list > 'keeps non-inline continuation inside …' 1`] = `
+[
+  {
+    "class": "block.list.unordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "seed
+",
+              },
+            ],
+          },
+          {
+            "class": "block.heading",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "heading",
+              },
+            ],
+            "level": 1,
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.list > 'ordered empty line between items' 1`] = `
 [
   {
     "class": "block.list.ordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "First",
+          },
+        ],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Second",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.list > 'ordered followed by paragraph' 1`] = `
+[
+  {
+    "class": "block.list.ordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Item",
+          },
+        ],
       },
     ],
   },
   {
     "class": "block.paragraph",
     "content": [
-      {
-        "class": "inline.text",
-        "value": "Item
-",
-      },
       {
         "class": "inline.text",
         "value": "A paragraph",
@@ -70,194 +109,177 @@ exports[`parser.block.list > 'ordered' > 'followed by paragraph' 1`] = `
 ]
 `;
 
-exports[`parser.block.list > 'ordered' > 'mixed item density' 1`] = `
+exports[`parser.block.list > 'ordered multiple items' 1`] = `
 [
   {
     "class": "block.list.ordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "First",
+          },
+        ],
       },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.ordered",
-    "content": [
       {
         "class": "block.list.item",
-        "content": [],
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Second",
+          },
+        ],
       },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Second
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.ordered",
-    "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Nested",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Third",
+          },
+        ],
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'ordered' > 'multiple items' 1`] = `
+exports[`parser.block.list > 'ordered nested list' 1`] = `
 [
   {
     "class": "block.list.ordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Outer
 ",
-      },
-    ],
-  },
-  {
-    "class": "block.list.ordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Second
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.ordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Third",
+              },
+            ],
+          },
+          {
+            "class": "block.list.ordered",
+            "content": [
+              {
+                "class": "block.list.item",
+                "content": [
+                  {
+                    "class": "inline.text",
+                    "value": "Inner",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'ordered' > 'nested list' 1`] = `
+exports[`parser.block.list > 'ordered single item' 1`] = `
 [
   {
     "class": "block.list.ordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Outer
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.ordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Inner",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "First item",
+          },
+        ],
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'ordered' > 'single item' 1`] = `
+exports[`parser.block.list > 'parse mixed' 1`] = `
 [
   {
-    "class": "block.list.ordered",
+    "class": "block.list.unordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First item",
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "one
+",
+              },
+            ],
+          },
+          {
+            "class": "block.heading",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "heading",
+              },
+            ],
+            "level": 1,
+          },
+        ],
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'unordered' > 'empty line between items' 1`] = `
+exports[`parser.block.list > 'parse sparse' 1`] = `
+[
+  {
+    "class": "block.list.unordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.heading",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "heading",
+              },
+            ],
+            "level": 1,
+          },
+        ],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "block.heading",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "another",
+              },
+            ],
+            "level": 1,
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.list > 'parses list marker followed by eof af…' 1`] = `
 [
   {
     "class": "block.list.unordered",
@@ -268,56 +290,56 @@ exports[`parser.block.list > 'unordered' > 'empty line between items' 1`] = `
       },
     ],
   },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.unordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Second",
-      },
-    ],
-  },
 ]
 `;
 
-exports[`parser.block.list > 'unordered' > 'followed by paragraph' 1`] = `
+exports[`parser.block.list > 'unordered empty line between items' 1`] = `
 [
   {
     "class": "block.list.unordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "First",
+          },
+        ],
+      },
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Second",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`parser.block.list > 'unordered followed by paragraph' 1`] = `
+[
+  {
+    "class": "block.list.unordered",
+    "content": [
+      {
+        "class": "block.list.item",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Item",
+          },
+        ],
       },
     ],
   },
   {
     "class": "block.paragraph",
     "content": [
-      {
-        "class": "inline.text",
-        "value": "Item
-",
-      },
       {
         "class": "inline.text",
         "value": "A paragraph",
@@ -327,187 +349,95 @@ exports[`parser.block.list > 'unordered' > 'followed by paragraph' 1`] = `
 ]
 `;
 
-exports[`parser.block.list > 'unordered' > 'mixed item density' 1`] = `
+exports[`parser.block.list > 'unordered multiple items' 1`] = `
 [
   {
     "class": "block.list.unordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "First",
+          },
+        ],
       },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.unordered",
-    "content": [
       {
         "class": "block.list.item",
-        "content": [],
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Second",
+          },
+        ],
       },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Second
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.unordered",
-    "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Nested",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Third",
+          },
+        ],
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'unordered' > 'multiple items' 1`] = `
+exports[`parser.block.list > 'unordered nested list' 1`] = `
 [
   {
     "class": "block.list.unordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First
+        "content": [
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Outer
 ",
-      },
-    ],
-  },
-  {
-    "class": "block.list.unordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Second
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.unordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Third",
+              },
+            ],
+          },
+          {
+            "class": "block.list.unordered",
+            "content": [
+              {
+                "class": "block.list.item",
+                "content": [
+                  {
+                    "class": "inline.text",
+                    "value": "Inner",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },
 ]
 `;
 
-exports[`parser.block.list > 'unordered' > 'nested list' 1`] = `
+exports[`parser.block.list > 'unordered single item' 1`] = `
 [
   {
     "class": "block.list.unordered",
     "content": [
       {
         "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Outer
-",
-      },
-    ],
-  },
-  {
-    "class": "block.list.unordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "Inner",
-      },
-    ],
-  },
-]
-`;
-
-exports[`parser.block.list > 'unordered' > 'single item' 1`] = `
-[
-  {
-    "class": "block.list.unordered",
-    "content": [
-      {
-        "class": "block.list.item",
-        "content": [],
-      },
-    ],
-  },
-  {
-    "class": "block.paragraph",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "First item",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "First item",
+          },
+        ],
       },
     ],
   },

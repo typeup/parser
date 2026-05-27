@@ -1,19 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser.inline.emphasize > 'basic' 1`] = `
-[
-  {
-    "class": "inline.emphasize",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "emphasize",
-      },
-    ],
-  },
-]
-`;
-
 exports[`parser.inline.emphasize > 'in text' 1`] = `
 [
   {
@@ -46,42 +32,6 @@ exports[`parser.inline.emphasize > 'standalone emphasize' 1`] = `
         "value": "emphasize",
       },
     ],
-  },
-]
-`;
-
-exports[`parser.inline.emphasize > basic 1`] = `
-[
-  {
-    "class": "inline.emphasize",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "emphasize",
-      },
-    ],
-  },
-]
-`;
-
-exports[`parser.inline.emphasize > in text 1`] = `
-[
-  {
-    "class": "inline.text",
-    "value": "This is a text with an ",
-  },
-  {
-    "class": "inline.emphasize",
-    "content": [
-      {
-        "class": "inline.text",
-        "value": "emphasize",
-      },
-    ],
-  },
-  {
-    "class": "inline.text",
-    "value": " in it.",
   },
 ]
 `;

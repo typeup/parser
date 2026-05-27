@@ -1,14 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser.inline.text > basic 1`] = `
-[
-  {
-    "class": "inline.text",
-    "value": "A simple text.",
-  },
-]
-`;
-
 exports[`parser.inline.text > plain text 1`] = `
 [
   {

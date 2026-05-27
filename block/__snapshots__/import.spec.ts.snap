@@ -33,37 +33,3 @@ exports[`parser.block.import > imports subdocument 1`] = `
   },
 ]
 `;
-
-exports[`parser.block.import > simple 1`] = `
-[
-  {
-    "class": "block.import",
-    "content": {
-      "class": "file",
-      "content": [
-        {
-          "class": "block.heading",
-          "content": [
-            {
-              "class": "inline.text",
-              "value": "Header",
-            },
-          ],
-          "level": 1,
-        },
-        {
-          "class": "block.paragraph",
-          "content": [
-            {
-              "class": "inline.text",
-              "value": "This is a paragraph.
-",
-            },
-          ],
-        },
-      ],
-    },
-    "source": "./example/subdocument",
-  },
-]
-`;
