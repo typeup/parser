@@ -4,7 +4,7 @@ import { CommentStripper } from "./CommentStripper"
 export class Source extends mendly.Reader.Buffered implements mendly.Error.Handler {
 	protected constructor(
 		reader: mendly.Reader,
-		private errorHandler: mendly.Error.Handler = new mendly.Error.Handler.Console()
+		protected errorHandler: mendly.Error.Handler = new mendly.Error.Handler.Console()
 	) {
 		super(reader)
 	}
