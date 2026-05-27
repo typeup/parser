@@ -19,7 +19,7 @@ export namespace parser {
 		path: mendly.Uri | string | undefined,
 		handler?: mendly.Error.Handler
 	): dom.Document | undefined {
-		const locator = typeof path === "string" ? mendly.Uri.parse(path) : path
+		const locator = typeof path == "string" ? mendly.Uri.parse(path) : path
 		return locator && parse(Source.from(mendly.Reader.open(locator), handler))
 	}
 	export import Source = _Source

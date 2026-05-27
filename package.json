@@ -14,10 +14,10 @@
 	},
 	"homepage": "https://github.com/typeup/parser",
 	"type": "module",
-	"types": "./dist/types/index.d.ts",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/types/index.d.ts",
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
 			"default": "./dist/index.js"
 		}
