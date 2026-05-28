@@ -1,7 +1,7 @@
 import { dom } from "@typeup/dom"
-import { inline } from "../inline"
-import { Source } from "../Source"
-import { block } from "./block"
+import { inline } from "../inline/index.js"
+import { Source } from "../Source.js"
+import { block } from "./block.js"
 
 function parse(source: Source): dom.Block[] | undefined {
 	let level = 0

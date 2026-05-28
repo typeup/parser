@@ -1,6 +1,6 @@
 import { dom } from "@typeup/dom"
-import { Source } from "../Source"
-import { inline } from "./inline"
+import { Source } from "../Source.js"
+import { inline } from "./inline.js"
 
 function parse(source: Source): dom.Inline[] | undefined {
 	let result: dom.Inline[] | undefined

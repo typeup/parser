@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
-import { CommentStripper } from "./CommentStripper"
-import { Importer } from "./Importer"
+import { CommentStripper } from "./CommentStripper.js"
+import { Importer } from "./Importer.js"
 
 export class Source extends mendly.Reader.Buffered implements mendly.Error.Handler {
 	private constructor(

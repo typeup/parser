@@ -1,4 +1,4 @@
-import { parser } from "../index"
+import { parser } from "../index.js"
 
 describe("parser.block.chapter", () => {
 	it.each([

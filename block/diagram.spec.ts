@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { parser } from "../index"
+import { parser } from "../index.js"
 
 describe("parser.block.diagram", () => {
 	it("diagram block with caption", () =>

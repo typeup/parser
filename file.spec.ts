@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { parser } from "./index"
+import { parser } from "./index.js"
 
 describe("file", () => {
 	it("parse(undefined) returns undefined", () => expect(parser.parse(undefined)).toBeUndefined())

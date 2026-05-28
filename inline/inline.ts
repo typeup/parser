@@ -1,5 +1,5 @@
 import { dom } from "@typeup/dom"
-import { Source } from "../Source"
+import { Source } from "../Source.js"
 
 export namespace inline {
 	let parsers: { parse: (source: Source) => dom.Inline[] | undefined; priority: number }[] = []

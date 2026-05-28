@@ -1,7 +1,7 @@
 import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
-import { block } from "./block"
-import { Source } from "./Source"
+import { block } from "./block/index.js"
+import { Source } from "./Source.js"
 
 export function parse(source: Source | undefined): dom.File | undefined {
 	const content = source && block.parse(source)

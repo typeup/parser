@@ -1,6 +1,6 @@
 import { dom } from "@typeup/dom"
-import { Source } from "../Source"
-import { block } from "./block"
+import { Source } from "../Source.js"
+import { block } from "./block.js"
 
 function makeDense(content: dom.Block.List.Item.Content[]): dom.Inline[] {
 	return content.flatMap(c => (c.is("block.paragraph") ? c.content : c.is("inline") ? [c] : []))

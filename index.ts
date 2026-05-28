@@ -1,9 +1,9 @@
 import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
-import { block as _block } from "./block"
-import { Importer as _Importer } from "./Importer"
-import { inline as _inline } from "./inline"
-import { Source } from "./Source"
+import { block as _block } from "./block/index.js"
+import { Importer as _Importer } from "./Importer.js"
+import { inline as _inline } from "./inline/index.js"
+import { Source } from "./Source.js"
 
 export namespace parser {
 	export function parse(

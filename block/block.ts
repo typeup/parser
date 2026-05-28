@@ -1,5 +1,5 @@
 import { dom } from "@typeup/dom"
-import { Source } from "../Source"
+import { Source } from "../Source.js"
 
 export namespace block {
 	let parsers: { parse: (source: Source) => dom.Block[] | undefined; priority: number }[] = []

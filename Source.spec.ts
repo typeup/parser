@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { parser } from "./index"
+import { parser } from "./index.js"
 
 class CollectingErrorHandler implements mendly.Error.Handler {
 	public errors: mendly.Error[] = []

@@ -1,13 +1,13 @@
 import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
-import { Source } from "../Source"
-import "./code"
-import "./emphasize"
-import "./link"
-import "./math"
-import "./quote"
-import "./text"
-import { inline as _inline } from "./inline"
+import { Source } from "../Source.js"
+import "./code.js"
+import "./emphasize.js"
+import "./link.js"
+import "./math.js"
+import "./quote.js"
+import "./text.js"
+import { inline as _inline } from "./inline.js"
 
 export namespace inline {
 	export function parse(

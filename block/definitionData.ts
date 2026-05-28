@@ -1,6 +1,6 @@
 import { dom } from "@typeup/dom"
-import { inline } from "../inline"
-import { Source } from "../Source"
+import { inline } from "../inline/index.js"
+import { Source } from "../Source.js"
 
 export namespace definitionData {
 	export function parse(source: Source): dom.Block.List.Definition.Data[] | undefined {

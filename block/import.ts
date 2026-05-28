@@ -1,8 +1,8 @@
 import { dom } from "@typeup/dom"
 import { mendly } from "mendly"
-import * as file from "../file"
-import { Source } from "../Source"
-import { block } from "./block"
+import * as file from "../file.js"
+import { Source } from "../Source.js"
+import { block } from "./block.js"
 
 function parse(source: Source): dom.Block[] | undefined {
 	let result: dom.Block[] | undefined

@@ -1,8 +1,8 @@
 import { dom } from "@typeup/dom"
-import { inline } from "../inline"
-import { Source } from "../Source"
-import { block } from "./block"
-import { definitionData } from "./definitionData"
+import { inline } from "../inline/index.js"
+import { Source } from "../Source.js"
+import { block } from "./block.js"
+import { definitionData } from "./definitionData.js"
 
 function parse(source: Source): dom.Block[] | undefined {
 	const content = inline.parse(source.until("\n"))

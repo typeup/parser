@@ -1,4 +1,4 @@
-import { parser } from "./index"
+import { parser } from "./index.js"
 
 describe("parser", () => {
 	it("returns undefined for parser.parse(undefined)", () => expect(parser.parse(undefined)).toBeUndefined())
