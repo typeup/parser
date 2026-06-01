@@ -6,5 +6,5 @@ describe("parser.block.chapter", () => {
 		{ label: "chapter followed by another chapter", input: "===\nChapter one\n\n===\nChapter two\n" },
 		{ label: "chapter with heading and paragraph", input: "===\n# Header\nBody text\n" },
 		{ label: "empty chapter marker", input: "===\n" }
-	])("$label", ({ input }) => expect((parser.block.parse(input) || []).map(node => node.toObject())).toMatchSnapshot())
+	])("$label", ({ input }) => expect((parser.block.parse(input) || []).map(node => node.dehydrate())).toMatchSnapshot())
 })

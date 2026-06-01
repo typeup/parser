@@ -15,5 +15,5 @@ describe("parser.block.quote", () => {
 		{ label: "empty content", input: '"""\n"""\n' },
 		{ label: "empty cite", input: '"""\ninside\n""" \n' },
 		{ label: "unclosed quote block", input: '"""\ninside' }
-	])("$label", ({ input }) => expect(parser.block.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
+	])("$label", ({ input }) => expect(parser.block.parse(input)?.map(node => node.dehydrate())).toMatchSnapshot())
 })

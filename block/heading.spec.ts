@@ -11,7 +11,7 @@ describe("parser.block.heading", () => {
 		{ label: "level 6", input: "###### Heading\n" }
 	])("$label", ({ input }) =>
 		expect(
-			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.dehydrate())
 		).toMatchSnapshot())
 	it.each([
 		{ label: "leading whitespace", input: "#   spaced heading\n" },

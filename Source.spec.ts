@@ -11,7 +11,7 @@ class CollectingErrorHandler implements mendly.Error.Handler {
 describe("Source", () => {
 	it("returns undefined for undefined", () => expect(parser.parse(undefined)).toBeUndefined())
 	it("accepts reader input", () => {
-		expect(parser.parse(mendly.Reader.String.create("name = value\n"))?.toObject()).toMatchSnapshot()
+		expect(parser.parse(mendly.Reader.String.create("name = value\n"))?.dehydrate()).toMatchSnapshot()
 	})
 	it("forwards lexical errors to the handler", () => {
 		const handler = new CollectingErrorHandler()

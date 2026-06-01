@@ -5,7 +5,7 @@ describe("parser.block.paragraph", () => {
 	it("single paragraph", () =>
 		expect(
 			(parser.block.parse("This is a single paragraph.", new mendly.Error.Handler.Console()) || []).map(node =>
-				node.toObject()
+				node.dehydrate()
 			)
 		).toMatchSnapshot())
 	it("empty line chains into next block", () =>
@@ -24,6 +24,6 @@ describe("parser.block.definitionList", () => {
 		{ label: "whitespace-only data", input: "Term\n:    \n" }
 	])("$label", ({ input }) =>
 		expect(
-			parser.block.parse(input, new mendly.Error.Handler.Console())?.map(node => node.toObject())
+			parser.block.parse(input, new mendly.Error.Handler.Console())?.map(node => node.dehydrate())
 		).toMatchSnapshot())
 })

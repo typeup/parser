@@ -7,7 +7,7 @@ describe("parser.inline.emphasize", () => {
 		{ label: "in text", input: "This is a text with an _emphasize_ in it." }
 	])("$label", ({ input }) =>
 		expect(
-			(parser.inline.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+			(parser.inline.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.dehydrate())
 		).toMatchSnapshot())
 	it.each([
 		{ label: "unclosed delimiter", input: "_unclosed" },

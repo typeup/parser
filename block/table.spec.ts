@@ -20,7 +20,7 @@ A selection of relevant properties required for creating new merchants. (r - req
 		}
 	])("$label", ({ input }) =>
 		expect(
-			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.dehydrate())
 		).toMatchSnapshot())
 	it.each([
 		"| A | B |\n|---:|:---:|\n| 1 | 2 |\n",

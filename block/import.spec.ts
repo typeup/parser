@@ -12,7 +12,7 @@ describe("parser.block.import", () => {
 	it("imports subdocument", () =>
 		expect(
 			(parser.block.parse("!import ./example/subdocument\n", new mendly.Error.Handler.Console()) || []).map(node =>
-				node.toObject()
+				node.dehydrate()
 			)
 		).toMatchSnapshot())
 	it.each([

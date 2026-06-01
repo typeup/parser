@@ -13,7 +13,7 @@ describe("parser.inline.link", () => {
 		{ name: "empty flag", input: "[./destination| link]" },
 		{ name: "empty then valid flag", input: "[./destination||blank link]" },
 		{ name: "empty then valid flag without display text", input: "[./destination||blank]" }
-	])("$name", ({ input }) => expect(parser.inline.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
+	])("$name", ({ input }) => expect(parser.inline.parse(input)?.map(node => node.dehydrate())).toMatchSnapshot())
 
 	it("target without display text parses", () => {
 		expect((parser.inline.parse("[target]") || []).map(node => node.class)).toContain("inline.link")

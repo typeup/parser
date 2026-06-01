@@ -5,7 +5,7 @@ describe("parser.block.diagram", () => {
 	it("diagram block with caption", () =>
 		expect(
 			(parser.block.parse("++\n<svg></svg>++\nFigure Caption.", new mendly.Error.Handler.Console()) || []).map(node =>
-				node.toObject()
+				node.dehydrate()
 			)
 		).toMatchSnapshot())
 	it.each(["++\nA -> B\n++\n", "++++\n", "++diagram"])("parses %s", input =>

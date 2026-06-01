@@ -27,7 +27,8 @@ describe("parser.block.list", () => {
 		// failed: { name: "handles indented-only items and merge with empty lines", input: "-\n\t- child\n\n-\n\tvalue\n" },
 		// failed: { name: "keeps block-only list items sparse", input: "-\n\t# first\n\n-\n\t# second\n" },
 		{ name: "keeps non-inline continuation inside merged list item", input: "- \n- seed\n\t# heading\n" }
-	] as const)("$name", ({ input }) => expect(parser.block.parse(input)?.map(node => node.toObject())).toMatchSnapshot())
+	] as const)("$name", ({ input }) =>
+		expect(parser.block.parse(input)?.map(node => node.dehydrate())).toMatchSnapshot())
 })
 describe("parser.block.list.toString", () => {
 	it.each([

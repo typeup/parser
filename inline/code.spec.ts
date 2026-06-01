@@ -8,7 +8,7 @@ describe("parser.inline.code", () => {
 		{ label: "html in text", input: "This is a text with an %<html></html>% in it." }
 	])("$label", ({ input }) =>
 		expect(
-			(parser.inline.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+			(parser.inline.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.dehydrate())
 		).toMatchSnapshot())
 	it.each([
 		{ label: "unclosed delimiter", input: "%unclosed" },

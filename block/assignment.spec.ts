@@ -9,5 +9,5 @@ describe("parser.block.assignment", () => {
 		{ label: "nested variable", input: "design.icon = url\n" },
 		{ label: "array style variable", input: "keywords[] = test\n" },
 		{ label: "missing name", input: " = value\n" }
-	])("$label", ({ input }) => expect((parser.block.parse(input) || []).map(node => node.toObject())).toMatchSnapshot())
+	])("$label", ({ input }) => expect((parser.block.parse(input) || []).map(node => node.dehydrate())).toMatchSnapshot())
 })

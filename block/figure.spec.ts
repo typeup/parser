@@ -9,6 +9,6 @@ describe("parser.block.figure", () => {
 		{ label: "missing newline", input: "!figure https://example.com/img.png" }
 	])("$label", ({ input }) =>
 		expect(
-			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+			(parser.block.parse(input, new mendly.Error.Handler.Console()) || []).map(node => node.dehydrate())
 		).toMatchSnapshot())
 })

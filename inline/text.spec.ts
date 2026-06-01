@@ -4,7 +4,7 @@ import { parser } from "../index.js"
 describe("parser.inline.text", () => {
 	it("plain text", () =>
 		expect(
-			(parser.inline.parse("A simple text.", new mendly.Error.Handler.Console()) || []).map(node => node.toObject())
+			(parser.inline.parse("A simple text.", new mendly.Error.Handler.Console()) || []).map(node => node.dehydrate())
 		).toMatchSnapshot())
 	it.each(["\\_x", "plain"])("parses %s as text", input =>
 		expect((parser.inline.parse(input) || [])[0]?.class).toBe("inline.text"))

@@ -11,7 +11,7 @@ describe("parser.block.code", () => {
 	])("$label", ({ input }) =>
 		expect(
 			(parser.block.parse(mendly.Reader.String.create(input), new mendly.Error.Handler.Console()) || []).map(node =>
-				node.toObject()
+				node.dehydrate()
 			)
 		).toMatchSnapshot())
 	it.each([
